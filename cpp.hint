@@ -1,0 +1,2 @@
+#define WRAPERCESIUM_API __declspec(dllexport)
+#define WRAPERCESIUM_API __declspec(dllimport)

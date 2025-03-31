@@ -1,0 +1,11 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: Output 目录未以斜杠结尾。  此生成实例将添加斜杠，因为必须有这个斜杠才能正确计算 Output 目录。
+  复制了 4 个文件
+  simple.cpp
+e:\dev\cesium-native\extern\draco\third_party\eigen\eigen\src\core\arch\default\half.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\dev\cesium-native\extern\draco\third_party\eigen\eigen\src\core\arch\default\bfloat16.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\dev\cesium-native\extern\draco\third_party\eigen\eigen\src\core\arch\default\genericpacketmathfunctions.h(665): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\dev\3rd\vcglib\vcg\complex\algorithms\update\color.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\dev\3rd\vcglib\vcg\complex\algorithms\update\quality.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+    正在创建库 E:\dev\cesium-native\build\x64\Release\WRAPERCESIUM.lib 和对象 E:\dev\cesium-native\build\x64\Release\WRAPERCESIUM.exp
+  LINK : 已指定 /LTCG，但不需要生成代码；从链接命令行中移除 /LTCG 以提高链接器性能
+  wraperCesium.vcxproj -> E:\dev\cesium-native\build\x64\Release\WRAPERCESIUM.dll

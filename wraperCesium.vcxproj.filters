@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="gltf">
+      <UniqueIdentifier>{4eac0311-8a57-4377-a222-51b8dbfc863d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="simple">
+      <UniqueIdentifier>{8632b122-eceb-4596-b00f-dc1344445df3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wraperCesium.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\extern\meshoptimizer\gltf\gltfpack.h">
+      <Filter>gltf</Filter>
+    </ClInclude>
+    <ClInclude Include="simple\base_types.h">
+      <Filter>simple</Filter>
+    </ClInclude>
+    <ClInclude Include="simple\cmesh.h">
+      <Filter>simple</Filter>
+    </ClInclude>
+    <ClInclude Include="simple\mesh_model.h">
+      <Filter>simple</Filter>
+    </ClInclude>
+    <ClInclude Include="simple\simple.h">
+      <Filter>simple</Filter>
+    </ClInclude>
+    <ClInclude Include="simple\vcgSimple.h">
+      <Filter>simple</Filter>
+    </ClInclude>
+    <ClInclude Include="threadpool.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="wraperCesium.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\extern\meshoptimizer\gltf\animation.cpp">
+      <Filter>gltf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\extern\meshoptimizer\gltf\basisenc.cpp">
+      <Filter>gltf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\extern\meshoptimizer\gltf\basislib.cpp">
+      <Filter>gltf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\extern\meshoptimizer\gltf\fileio.cpp">
+      <Filter>gltf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\extern\meshoptimizer\gltf\gltfpack.cpp">
+      <Filter>gltf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\extern\meshoptimizer\gltf\image.cpp">
+      <Filter>gltf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\extern\meshoptimizer\gltf\json.cpp">
+      <Filter>gltf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\extern\meshoptimizer\gltf\material.cpp">
+      <Filter>gltf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\extern\meshoptimizer\gltf\mesh.cpp">
+      <Filter>gltf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\extern\meshoptimizer\gltf\node.cpp">
+      <Filter>gltf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\extern\meshoptimizer\gltf\parsegltf.cpp">
+      <Filter>gltf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\extern\meshoptimizer\gltf\parseobj.cpp">
+      <Filter>gltf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\extern\meshoptimizer\gltf\stream.cpp">
+      <Filter>gltf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\extern\meshoptimizer\gltf\wasistubs.cpp">
+      <Filter>gltf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\extern\meshoptimizer\gltf\write.cpp">
+      <Filter>gltf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\extern\meshoptimizer\gltf\parselib.cpp">
+      <Filter>gltf</Filter>
+    </ClCompile>
+    <ClCompile Include="simple\cmesh.cpp">
+      <Filter>simple</Filter>
+    </ClCompile>
+    <ClCompile Include="simple\mesh_model.cpp">
+      <Filter>simple</Filter>
+    </ClCompile>
+    <ClCompile Include="simple\simple.cpp">
+      <Filter>simple</Filter>
+    </ClCompile>
+    <ClCompile Include="simple\vcgSimple.cpp">
+      <Filter>simple</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
