@@ -1,13 +1,5 @@
 
-#include <osg/Node>
-#include <osg/Geode>
-#include <osg/Vec3d>
-#include <osg/Vec2>
-#include <osg/Vec3>
-#include <osg/Vec4>
-#include <osg/BoundingBox>
-#include "osg/Geometry"
-
+#include <vector>
 namespace wraperCesium
 {
 	class GMesh;

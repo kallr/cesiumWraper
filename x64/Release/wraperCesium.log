@@ -1,11 +1,1019 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: Output 目录未以斜杠结尾。  此生成实例将添加斜杠，因为必须有这个斜杠才能正确计算 Output 目录。
   复制了 4 个文件
+  cmesh.cpp
+e:\dev\cesium-native\extern\draco\third_party\eigen\eigen\src\core\arch\default\half.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\dev\cesium-native\extern\draco\third_party\eigen\eigen\src\core\arch\default\bfloat16.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\dev\cesium-native\extern\draco\third_party\eigen\eigen\src\core\arch\default\genericpacketmathfunctions.h(665): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\dev\3rd\vcglib\vcg\complex\append.h(389): warning C4267: “初始化”: 从“size_t”转换到“unsigned int”，可能丢失数据
+  e:\dev\3rd\vcglib\vcg\complex\append.h(293): note: 编译 类 模板 成员函数 "void vcg::tri::Append<vcgTriMesh,vcgTriMesh>::MeshAppendConst(MeshLeft &,const ConstMeshRight &,const bool,const bool)" 时
+          with
+          [
+              MeshLeft=vcgTriMesh,
+              ConstMeshRight=vcgTriMesh
+          ]
+  e:\dev\cesium-native\build\wrapercesium\simple\cmesh.cpp(38): note: 参见对正在编译的函数 模板 实例化“void vcg::tri::Append<vcgTriMesh,vcgTriMesh>::MeshAppendConst(MeshLeft &,const ConstMeshRight &,const bool,const bool)”的引用
+          with
+          [
+              MeshLeft=vcgTriMesh,
+              ConstMeshRight=vcgTriMesh
+          ]
+  e:\dev\cesium-native\build\wrapercesium\simple\cmesh.cpp(38): note: 参见对正在编译的 类 模板 实例化 "vcg::tri::Append<vcgTriMesh,vcgTriMesh>" 的引用
+e:\dev\3rd\vcglib\vcg\complex\append.h(400): warning C4244: “=”: 从“__int64”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=unsigned int
+          ]
+e:\dev\3rd\vcglib\vcg\complex\allocate.h(761): warning C4267: “+=”: 从“size_t”转换到“int”，可能丢失数据
+  e:\dev\3rd\vcglib\vcg\complex\allocate.h(744): note: 编译 类 模板 成员函数 "std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> vcg::tri::Allocator<MeshLeft>::AddTetras(MeshType &,size_t,vcg::tri::Allocator<MeshType>::PointerUpdater<vcg::TetraSimp<vcg::UsedTypes<vcg::Use<CVertexO>::AsVertexType,vcg::Use<CEdgeO>::AsEdgeType,vcg::Use<CFaceO>::AsFaceType,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver>,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver> *> &)" 时
+          with
+          [
+              _Ty=vcg::TetraSimp<vcg::UsedTypes<vcg::Use<CVertexO>::AsVertexType,vcg::Use<CEdgeO>::AsEdgeType,vcg::Use<CFaceO>::AsFaceType,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver>,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver>,
+              MeshLeft=vcgTriMesh,
+              MeshType=vcgTriMesh
+          ]
+  e:\dev\3rd\vcglib\vcg\complex\allocate.h(901): note: 参见对正在编译的函数 模板 实例化“std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> vcg::tri::Allocator<MeshLeft>::AddTetras(MeshType &,size_t,vcg::tri::Allocator<MeshType>::PointerUpdater<vcg::TetraSimp<vcg::UsedTypes<vcg::Use<CVertexO>::AsVertexType,vcg::Use<CEdgeO>::AsEdgeType,vcg::Use<CFaceO>::AsFaceType,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver>,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver> *> &)”的引用
+          with
+          [
+              _Ty=vcg::TetraSimp<vcg::UsedTypes<vcg::Use<CVertexO>::AsVertexType,vcg::Use<CEdgeO>::AsEdgeType,vcg::Use<CFaceO>::AsFaceType,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver>,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver,vcg::DefaultDeriver>,
+              MeshLeft=vcgTriMesh,
+              MeshType=vcgTriMesh
+          ]
+  e:\dev\3rd\vcglib\vcg\complex\append.h(304): note: 参见对正在编译的 类 模板 实例化 "vcg::tri::Allocator<MeshLeft>" 的引用
+          with
+          [
+              MeshLeft=vcgTriMesh
+          ]
+  e:\dev\3rd\vcglib\vcg\complex\append.h(293): note: 编译 类 模板 成员函数 "void vcg::tri::Append<vcgTriMesh,vcgTriMesh>::MeshAppendConst(MeshLeft &,const ConstMeshRight &,const bool,const bool)" 时
+          with
+          [
+              MeshLeft=vcgTriMesh,
+              ConstMeshRight=vcgTriMesh
+          ]
+  e:\dev\cesium-native\build\wrapercesium\simple\cmesh.cpp(38): note: 参见对正在编译的函数 模板 实例化“void vcg::tri::Append<vcgTriMesh,vcgTriMesh>::MeshAppendConst(MeshLeft &,const ConstMeshRight &,const bool,const bool)”的引用
+          with
+          [
+              MeshLeft=vcgTriMesh,
+              ConstMeshRight=vcgTriMesh
+          ]
+e:\dev\3rd\vcglib\vcg\simplex\vertex\component_ocf.h(535): warning C4244: “初始化”: 从“__int64”转换到“int”，可能丢失数据
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component_ocf.h(533): note: 编译 类 模板 成员函数 "int vcg::vertex::InfoOcf<Base>::Index(void) const" 时
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component_ocf.h(392): note: 参见对正在编译的函数 模板 实例化“int vcg::vertex::InfoOcf<Base>::Index(void) const”的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(37): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::InfoOcf<Base>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component.h(194): note: 参见对正在编译的 类 模板 实例化 "vcg::Arity1<Base,A>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf
+          ]
+  e:\dev\cesium-native\build\wrapercesium\simple\cmesh.h(33): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::Coord<vcg::Point3<float>,T>" 的引用
+          with
+          [
+              T=vcg::Arity1<vcg::vertex::EmptyCore<CUsedTypesO>,vcg::vertex::InfoOcf>
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(43): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::Coord3m<vcg::Arity1<Base,A>>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component.h(344): note: 参见对正在编译的 类 模板 实例化 "vcg::Arity2<Base,A,B>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(49): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::BitFlags<vcg::Arity2<Base,A,B>>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component.h(234): note: 参见对正在编译的 类 模板 实例化 "vcg::Arity3<Base,A,B,C>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags
+          ]
+  e:\dev\cesium-native\build\wrapercesium\simple\cmesh.h(37): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::Normal<vcg::Point3<float>,T>" 的引用
+          with
+          [
+              T=vcg::Arity3<vcg::vertex::EmptyCore<CUsedTypesO>,vcg::vertex::InfoOcf,vcg::vertex::Coord3m,vcg::vertex::BitFlags>
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(55): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::Normal3m<vcg::Arity3<Base,A,B,C>>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component.h(395): note: 参见对正在编译的 类 模板 实例化 "vcg::Arity4<Base,A,B,C,D>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m
+          ]
+  e:\dev\cesium-native\build\wrapercesium\simple\cmesh.h(41): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::Quality<Scalarm,T>" 的引用
+          with
+          [
+              T=vcg::Arity4<vcg::vertex::EmptyCore<CUsedTypesO>,vcg::vertex::InfoOcf,vcg::vertex::Coord3m,vcg::vertex::BitFlags,vcg::vertex::Normal3m>
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(62): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::Qualitym<vcg::Arity4<Base,A,B,C,D>>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component.h(367): note: 参见对正在编译的 类 模板 实例化 "vcg::Arity5<Base,A,B,C,D,E>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component.h(383): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::Color<vcg::Color4b,TT>" 的引用
+          with
+          [
+              TT=vcg::Arity5<vcg::vertex::EmptyCore<CUsedTypesO>,vcg::vertex::InfoOcf,vcg::vertex::Coord3m,vcg::vertex::BitFlags,vcg::vertex::Normal3m,vcg::vertex::Qualitym>
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(69): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::Color4b<vcg::Arity5<Base,A,B,C,D,E>>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component_ocf.h(275): note: 参见对正在编译的 类 模板 实例化 "vcg::Arity6<Base,A,B,C,D,E,F>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(77): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::VFAdjOcf<vcg::Arity6<Base,A,B,C,D,E,F>>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component_ocf.h(412): note: 参见对正在编译的 类 模板 实例化 "vcg::Arity7<Base,A,B,C,D,E,F,G>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b,
+              G=vcg::vertex::VFAdjOcf
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(85): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::MarkOcf<vcg::Arity7<Base,A,B,C,D,E,F,G>>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b,
+              G=vcg::vertex::VFAdjOcf
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component_ocf.h(388): note: 参见对正在编译的 类 模板 实例化 "vcg::Arity8<Base,A,B,C,D,E,F,G,H>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b,
+              G=vcg::vertex::VFAdjOcf,
+              H=vcg::vertex::MarkOcf
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component_ocf.h(406): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::TexCoordOcf<vcg::TexCoord2<float,1>,T>" 的引用
+          with
+          [
+              T=vcg::Arity8<vcg::vertex::EmptyCore<CUsedTypesO>,vcg::vertex::InfoOcf,vcg::vertex::Coord3m,vcg::vertex::BitFlags,vcg::vertex::Normal3m,vcg::vertex::Qualitym,vcg::vertex::Color4b,vcg::vertex::VFAdjOcf,vcg::vertex::MarkOcf>
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(94): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::TexCoordfOcf<vcg::Arity8<Base,A,B,C,D,E,F,G,H>>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b,
+              G=vcg::vertex::VFAdjOcf,
+              H=vcg::vertex::MarkOcf
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component_ocf.h(447): note: 参见对正在编译的 类 模板 实例化 "vcg::Arity9<Base,A,B,C,D,E,F,G,H,I>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b,
+              G=vcg::vertex::VFAdjOcf,
+              H=vcg::vertex::MarkOcf,
+              I=vcg::vertex::TexCoordfOcf
+          ]
+  e:\dev\cesium-native\build\wrapercesium\simple\cmesh.h(45): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::CurvatureDirOcf<vcg::vertex::CurvatureDirTypeOcf<float>,T>" 的引用
+          with
+          [
+              T=vcg::Arity9<vcg::vertex::EmptyCore<CUsedTypesO>,vcg::vertex::InfoOcf,vcg::vertex::Coord3m,vcg::vertex::BitFlags,vcg::vertex::Normal3m,vcg::vertex::Qualitym,vcg::vertex::Color4b,vcg::vertex::VFAdjOcf,vcg::vertex::MarkOcf,vcg::vertex::TexCoordfOcf>
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(103): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::CurvatureDirmOcf<vcg::Arity9<Base,A,B,C,D,E,F,G,H,I>>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b,
+              G=vcg::vertex::VFAdjOcf,
+              H=vcg::vertex::MarkOcf,
+              I=vcg::vertex::TexCoordfOcf
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component_ocf.h(495): note: 参见对正在编译的 类 模板 实例化 "vcg::Arity10<Base,A,B,C,D,E,F,G,H,I,J>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b,
+              G=vcg::vertex::VFAdjOcf,
+              H=vcg::vertex::MarkOcf,
+              I=vcg::vertex::TexCoordfOcf,
+              J=vcg::vertex::CurvatureDirmOcf
+          ]
+  e:\dev\cesium-native\build\wrapercesium\simple\cmesh.h(49): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::RadiusOcf<Scalarm,T>" 的引用
+          with
+          [
+              T=vcg::Arity10<vcg::vertex::EmptyCore<CUsedTypesO>,vcg::vertex::InfoOcf,vcg::vertex::Coord3m,vcg::vertex::BitFlags,vcg::vertex::Normal3m,vcg::vertex::Qualitym,vcg::vertex::Color4b,vcg::vertex::VFAdjOcf,vcg::vertex::MarkOcf,vcg::vertex::TexCoordfOcf,vcg::vertex::CurvatureDirmOcf>
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(113): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::RadiusmOcf<vcg::Arity10<Base,A,B,C,D,E,F,G,H,I,J>>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b,
+              G=vcg::vertex::VFAdjOcf,
+              H=vcg::vertex::MarkOcf,
+              I=vcg::vertex::TexCoordfOcf,
+              J=vcg::vertex::CurvatureDirmOcf
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(32): note: 参见对正在编译的 类 模板 实例化 "vcg::Arity11<Base,A,B,C,D,E,F,G,H,I,J,K>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b,
+              G=vcg::vertex::VFAdjOcf,
+              H=vcg::vertex::MarkOcf,
+              I=vcg::vertex::TexCoordfOcf,
+              J=vcg::vertex::CurvatureDirmOcf,
+              K=vcg::vertex::RadiusmOcf
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(124): note: 参见对正在编译的 类 模板 实例化 "vcg::DefaultDeriver<vcg::Arity11<Base,A,B,C,D,E,F,G,H,I,J,K>>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b,
+              G=vcg::vertex::VFAdjOcf,
+              H=vcg::vertex::MarkOcf,
+              I=vcg::vertex::TexCoordfOcf,
+              J=vcg::vertex::CurvatureDirmOcf,
+              K=vcg::vertex::RadiusmOcf
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\base.h(64): note: 参见对正在编译的 类 模板 实例化 "vcg::Arity12<vcg::vertex::EmptyCore<UserTypes>,A,B,C,D,E,F,G,H,I,J,K,L>" 的引用
+          with
+          [
+              UserTypes=CUsedTypesO,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b,
+              G=vcg::vertex::VFAdjOcf,
+              H=vcg::vertex::MarkOcf,
+              I=vcg::vertex::TexCoordfOcf,
+              J=vcg::vertex::CurvatureDirmOcf,
+              K=vcg::vertex::RadiusmOcf,
+              L=vcg::DefaultDeriver
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\base.h(193): note: 参见对正在编译的 类 模板 实例化 "vcg::VertexArityMax<UserTypes,A,B,C,D,E,F,G,H,I,J,K,L>" 的引用
+          with
+          [
+              UserTypes=CUsedTypesO,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b,
+              G=vcg::vertex::VFAdjOcf,
+              H=vcg::vertex::MarkOcf,
+              I=vcg::vertex::TexCoordfOcf,
+              J=vcg::vertex::CurvatureDirmOcf,
+              K=vcg::vertex::RadiusmOcf,
+              L=vcg::DefaultDeriver
+          ]
+  e:\dev\cesium-native\build\wrapercesium\simple\cmesh.h(99): note: 参见对正在编译的 类 模板 实例化 "vcg::Vertex<CUsedTypesO,vcg::vertex::InfoOcf,vcg::vertex::Coord3m,vcg::vertex::BitFlags,vcg::vertex::Normal3m,vcg::vertex::Qualitym,vcg::vertex::Color4b,vcg::vertex::VFAdjOcf,vcg::vertex::MarkOcf,vcg::vertex::TexCoordfOcf,vcg::vertex::CurvatureDirmOcf,vcg::vertex::RadiusmOcf,vcg::DefaultDeriver>" 的引用
+  mesh_model.cpp
+e:\dev\cesium-native\extern\draco\third_party\eigen\eigen\src\core\arch\default\half.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\dev\cesium-native\extern\draco\third_party\eigen\eigen\src\core\arch\default\bfloat16.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\dev\cesium-native\extern\draco\third_party\eigen\eigen\src\core\arch\default\genericpacketmathfunctions.h(665): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(76): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(76): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(76): error C2039: “IOM_NONE”: 不是“vcg::tri”的成员
+  e:\dev\3rd\vcglib\vcg\complex\append.h(30): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(76): error C2065: “IOM_NONE”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(76): error C2131: 表达式的计算结果不是常数
+  e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(76): note: 遇到非常量(子)表达式
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(77): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(77): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(77): error C2039: “IOM_VERTCOORD”: 不是“vcg::tri”的成员
+  e:\dev\3rd\vcglib\vcg\complex\append.h(30): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(77): error C2065: “IOM_VERTCOORD”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(77): error C2131: 表达式的计算结果不是常数
+  e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(77): note: 遇到非常量(子)表达式
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(78): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(78): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(78): error C2039: “IOM_VERTCOLOR”: 不是“vcg::tri”的成员
+  e:\dev\3rd\vcglib\vcg\complex\append.h(30): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(78): error C2065: “IOM_VERTCOLOR”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(78): error C2131: 表达式的计算结果不是常数
+  e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(78): note: 遇到非常量(子)表达式
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(79): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(79): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(79): error C2039: “IOM_VERTFLAGS”: 不是“vcg::tri”的成员
+  e:\dev\3rd\vcglib\vcg\complex\append.h(30): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(79): error C2065: “IOM_VERTFLAGS”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(79): error C2131: 表达式的计算结果不是常数
+  e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(79): note: 遇到非常量(子)表达式
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(80): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(80): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(80): error C2039: “IOM_VERTQUALITY”: 不是“vcg::tri”的成员
+  e:\dev\3rd\vcglib\vcg\complex\append.h(30): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(80): error C2065: “IOM_VERTQUALITY”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(80): error C2131: 表达式的计算结果不是常数
+  e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(80): note: 遇到非常量(子)表达式
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(81): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(81): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(81): error C2039: “IOM_VERTNORMAL”: 不是“vcg::tri”的成员
+  e:\dev\3rd\vcglib\vcg\complex\append.h(30): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(81): error C2065: “IOM_VERTNORMAL”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(81): error C2131: 表达式的计算结果不是常数
+  e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(81): note: 遇到非常量(子)表达式
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(82): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(82): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(82): error C2039: “IOM_VERTTEXCOORD”: 不是“vcg::tri”的成员
+  e:\dev\3rd\vcglib\vcg\complex\append.h(30): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(82): error C2065: “IOM_VERTTEXCOORD”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(82): error C2131: 表达式的计算结果不是常数
+  e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(82): note: 遇到非常量(子)表达式
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(83): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(83): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(83): error C2039: “IOM_VERTRADIUS”: 不是“vcg::tri”的成员
+  e:\dev\3rd\vcglib\vcg\complex\append.h(30): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(83): error C2065: “IOM_VERTRADIUS”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(83): error C2131: 表达式的计算结果不是常数
+  e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(83): note: 遇到非常量(子)表达式
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(85): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(85): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(85): error C2039: “IOM_FACEINDEX”: 不是“vcg::tri”的成员
+  e:\dev\3rd\vcglib\vcg\complex\append.h(30): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(85): error C2065: “IOM_FACEINDEX”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(85): error C2131: 表达式的计算结果不是常数
+  e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(85): note: 遇到非常量(子)表达式
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(86): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(86): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(86): error C2039: “IOM_FACEFLAGS”: 不是“vcg::tri”的成员
+  e:\dev\3rd\vcglib\vcg\complex\append.h(30): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(86): error C2065: “IOM_FACEFLAGS”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(86): error C2131: 表达式的计算结果不是常数
+  e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(86): note: 遇到非常量(子)表达式
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(87): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(87): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(87): error C2039: “IOM_FACECOLOR”: 不是“vcg::tri”的成员
+  e:\dev\3rd\vcglib\vcg\complex\append.h(30): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(87): error C2065: “IOM_FACECOLOR”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(87): error C2131: 表达式的计算结果不是常数
+  e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(87): note: 遇到非常量(子)表达式
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(88): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(88): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(88): error C2039: “IOM_FACEQUALITY”: 不是“vcg::tri”的成员
+  e:\dev\3rd\vcglib\vcg\complex\append.h(30): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(88): error C2065: “IOM_FACEQUALITY”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(88): error C2131: 表达式的计算结果不是常数
+  e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(88): note: 遇到非常量(子)表达式
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(89): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(89): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(89): error C2039: “IOM_FACENORMAL”: 不是“vcg::tri”的成员
+  e:\dev\3rd\vcglib\vcg\complex\append.h(30): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(89): error C2065: “IOM_FACENORMAL”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(89): error C2131: 表达式的计算结果不是常数
+  e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(89): note: 遇到非常量(子)表达式
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(91): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(91): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(91): error C2039: “IOM_WEDGTEXCOORD”: 不是“vcg::tri”的成员
+  e:\dev\3rd\vcglib\vcg\complex\append.h(30): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(91): error C2065: “IOM_WEDGTEXCOORD”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(91): error C2131: 表达式的计算结果不是常数
+  e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(91): note: 遇到非常量(子)表达式
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(92): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(92): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(92): error C2039: “IOM_WEDGCOLOR”: 不是“vcg::tri”的成员
+  e:\dev\3rd\vcglib\vcg\complex\append.h(30): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(92): error C2065: “IOM_WEDGCOLOR”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(92): error C2131: 表达式的计算结果不是常数
+  e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(92): note: 遇到非常量(子)表达式
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(93): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(93): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(93): error C2039: “IOM_WEDGNORMAL”: 不是“vcg::tri”的成员
+  e:\dev\3rd\vcglib\vcg\complex\append.h(30): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(93): error C2065: “IOM_WEDGNORMAL”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(93): error C2131: 表达式的计算结果不是常数
+  e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(93): note: 遇到非常量(子)表达式
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(95): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(95): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(95): error C2039: “IOM_BITPOLYGONAL”: 不是“vcg::tri”的成员
+  e:\dev\3rd\vcglib\vcg\complex\append.h(30): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(95): error C2065: “IOM_BITPOLYGONAL”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(95): error C2131: 表达式的计算结果不是常数
+  e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(95): note: 遇到非常量(子)表达式
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(76): error C2051: case 表达式不是常量
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(77): error C2051: case 表达式不是常量
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(78): error C2051: case 表达式不是常量
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(79): error C2051: case 表达式不是常量
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(80): error C2051: case 表达式不是常量
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(81): error C2051: case 表达式不是常量
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(82): error C2051: case 表达式不是常量
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(83): error C2051: case 表达式不是常量
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(85): error C2051: case 表达式不是常量
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(86): error C2051: case 表达式不是常量
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(87): error C2051: case 表达式不是常量
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(88): error C2051: case 表达式不是常量
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(89): error C2051: case 表达式不是常量
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(91): error C2051: case 表达式不是常量
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(92): error C2051: case 表达式不是常量
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(93): error C2051: case 表达式不是常量
+e:\dev\cesium-native\build\wrapercesium\simple\mesh_model.cpp(93): fatal error C1003: 错误计数超过 100；正在停止编译
   simple.cpp
 e:\dev\cesium-native\extern\draco\third_party\eigen\eigen\src\core\arch\default\half.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 e:\dev\cesium-native\extern\draco\third_party\eigen\eigen\src\core\arch\default\bfloat16.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 e:\dev\cesium-native\extern\draco\third_party\eigen\eigen\src\core\arch\default\genericpacketmathfunctions.h(665): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-e:\dev\3rd\vcglib\vcg\complex\algorithms\update\color.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-e:\dev\3rd\vcglib\vcg\complex\algorithms\update\quality.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-    正在创建库 E:\dev\cesium-native\build\x64\Release\WRAPERCESIUM.lib 和对象 E:\dev\cesium-native\build\x64\Release\WRAPERCESIUM.exp
-  LINK : 已指定 /LTCG，但不需要生成代码；从链接命令行中移除 /LTCG 以提高链接器性能
-  wraperCesium.vcxproj -> E:\dev\cesium-native\build\x64\Release\WRAPERCESIUM.dll
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(413): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(413): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(413): error C2039: “IOM_VERTTEXCOORD”: 不是“vcg::tri”的成员
+  e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.h(14): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(413): error C2065: “IOM_VERTTEXCOORD”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(415): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(415): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(415): error C2039: “IOM_WEDGTEXCOORD”: 不是“vcg::tri”的成员
+  e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.h(14): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(415): error C2065: “IOM_WEDGTEXCOORD”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(416): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(416): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(416): error C2039: “IOM_FACECOLOR”: 不是“vcg::tri”的成员
+  e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.h(14): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(416): error C2065: “IOM_FACECOLOR”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(418): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(418): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(418): error C2039: “IOM_FACECOLOR”: 不是“vcg::tri”的成员
+  e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.h(14): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(418): error C2065: “IOM_FACECOLOR”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(422): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(422): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(422): error C2039: “IOM_VERTCOLOR”: 不是“vcg::tri”的成员
+  e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.h(14): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(422): error C2065: “IOM_VERTCOLOR”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(426): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(426): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(426): error C2039: “IOM_VERTNORMAL”: 不是“vcg::tri”的成员
+  e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.h(14): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(426): error C2065: “IOM_VERTNORMAL”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(632): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(632): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(632): error C2039: “IOM_VERTTEXCOORD”: 不是“vcg::tri”的成员
+  e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.h(14): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(632): error C2065: “IOM_VERTTEXCOORD”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(634): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(634): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(634): error C2039: “IOM_WEDGTEXCOORD”: 不是“vcg::tri”的成员
+  e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.h(14): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(634): error C2065: “IOM_WEDGTEXCOORD”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(635): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(635): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(635): error C2039: “IOM_FACECOLOR”: 不是“vcg::tri”的成员
+  e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.h(14): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(635): error C2065: “IOM_FACECOLOR”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(637): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(637): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(637): error C2039: “IOM_FACECOLOR”: 不是“vcg::tri”的成员
+  e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.h(14): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(637): error C2065: “IOM_FACECOLOR”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(641): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(641): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(641): error C2039: “IOM_VERTCOLOR”: 不是“vcg::tri”的成员
+  e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.h(14): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(641): error C2065: “IOM_VERTCOLOR”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(645): error C3083: “io”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(645): error C3083: “Mask”:“::”左侧的符号必须是一种类型
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(645): error C2039: “IOM_VERTNORMAL”: 不是“vcg::tri”的成员
+  e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.h(14): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(645): error C2065: “IOM_VERTNORMAL”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(654): error C2039: “Clean”: 不是“vcg::tri”的成员
+  e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.h(14): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(654): error C2065: “Clean”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(654): error C2275: “CMeshO”: 将此类型用作表达式非法
+  e:\dev\cesium-native\build\wrapercesium\simple\cmesh.h(128): note: 参见“CMeshO”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(654): error C2039: “RemoveDuplicateVertex”: 不是“`global namespace'”的成员
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(654): error C3861: “RemoveDuplicateVertex”: 找不到标识符
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(661): error C2039: “Clean”: 不是“vcg::tri”的成员
+  e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.h(14): note: 参见“vcg::tri”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(661): error C2065: “Clean”: 未声明的标识符
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(661): error C2275: “CMeshO”: 将此类型用作表达式非法
+  e:\dev\cesium-native\build\wrapercesium\simple\cmesh.h(128): note: 参见“CMeshO”的声明
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(661): error C2039: “ConnectedComponents”: 不是“`global namespace'”的成员
+e:\dev\cesium-native\build\wrapercesium\simple\simple.cpp(661): error C3861: “ConnectedComponents”: 找不到标识符
+  vcgSimple.cpp
+e:\dev\cesium-native\extern\draco\third_party\eigen\eigen\src\core\arch\default\half.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\dev\cesium-native\extern\draco\third_party\eigen\eigen\src\core\arch\default\bfloat16.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\dev\cesium-native\extern\draco\third_party\eigen\eigen\src\core\arch\default\genericpacketmathfunctions.h(665): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.cpp(49): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.cpp(53): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.cpp(66): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.cpp(108): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.cpp(113): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.cpp(125): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.cpp(167): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.cpp(189): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+e:\dev\3rd\vcglib\vcg\complex\algorithms\clean.h(424): warning C4244: “return”: 从“__int64”转换到“int”，可能丢失数据
+  e:\dev\3rd\vcglib\vcg\complex\algorithms\clean.h(397): note: 编译 类 模板 成员函数 "int vcg::tri::Clean<CMeshO>::RemoveUnreferencedVertex(CMeshO &,bool)" 时
+  e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.cpp(239): note: 参见对正在编译的函数 模板 实例化“int vcg::tri::Clean<CMeshO>::RemoveUnreferencedVertex(CMeshO &,bool)”的引用
+  e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.cpp(149): note: 参见对正在编译的 类 模板 实例化 "vcg::tri::Clean<CMeshO>" 的引用
+e:\dev\3rd\vcglib\vcg\complex\algorithms\local_optimization\tri_edge_collapse_quadric_tex.h(726): warning C4244: “参数”: 从“double”转换到“const P3ScalarType”，可能丢失数据
+          with
+          [
+              P3ScalarType=float
+          ]
+  e:\dev\3rd\vcglib\vcg\complex\algorithms\local_optimization\tri_edge_collapse_quadric_tex.h(701): note: 编译 类 模板 成员函数 "void vcg::tri::TriEdgeCollapseQuadricTex<CMeshO,vcg::tri::VertexPair,vcg::tri::MyTriEdgeCollapseQTex,vcg::tri::QuadricTexHelper<CMeshO>>::Execute(TriMeshType &,vcg::BaseParameterClass *)" 时
+          with
+          [
+              TriMeshType=CMeshO
+          ]
+  e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.h(47): note: 参见对正在编译的 类 模板 实例化 "vcg::tri::TriEdgeCollapseQuadricTex<CMeshO,vcg::tri::VertexPair,vcg::tri::MyTriEdgeCollapseQTex,vcg::tri::QuadricTexHelper<CMeshO>>" 的引用
+e:\dev\3rd\vcglib\vcg\complex\algorithms\local_optimization\tri_edge_collapse_quadric_tex.h(749): warning C4244: “=”: 从“double”转换到“T”，可能丢失数据
+          with
+          [
+              T=float
+          ]
+e:\dev\3rd\vcglib\vcg\complex\algorithms\local_optimization\tri_edge_collapse_quadric_tex.h(750): warning C4244: “=”: 从“double”转换到“T”，可能丢失数据
+          with
+          [
+              T=float
+          ]
+e:\dev\3rd\vcglib\vcg\complex\algorithms\local_optimization\tri_edge_collapse_quadric.h(329): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+  e:\dev\3rd\vcglib\vcg\complex\algorithms\local_optimization\tri_edge_collapse_quadric.h(303): note: 编译 类 模板 成员函数 "float vcg::tri::TriEdgeCollapseQuadric<CMeshO,vcg::tri::VertexPair,vcg::tri::MyTriEdgeCollapse,vcg::tri::QHelper>::ComputePriority(vcg::BaseParameterClass *)" 时
+  e:\dev\cesium-native\build\wrapercesium\simple\vcgsimple.h(39): note: 参见对正在编译的 类 模板 实例化 "vcg::tri::TriEdgeCollapseQuadric<CMeshO,vcg::tri::VertexPair,vcg::tri::MyTriEdgeCollapse,vcg::tri::QHelper>" 的引用
+e:\dev\3rd\vcglib\vcg\complex\algorithms\local_optimization\tri_edge_collapse_quadric.h(347): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+e:\dev\3rd\vcglib\vcg\complex\algorithms\local_optimization\tri_edge_collapse_quadric.h(390): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+e:\dev\3rd\vcglib\vcg\complex\algorithms\local_optimization\tri_edge_collapse_quadric.h(395): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+e:\dev\3rd\vcglib\vcg\complex\algorithms\local_optimization\tri_edge_collapse_quadric.h(396): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+e:\dev\3rd\vcglib\vcg\complex\algorithms\clean.h(370): warning C4267: “参数”: 从“size_t”转换到“unsigned int”，可能丢失数据
+  e:\dev\3rd\vcglib\vcg\complex\algorithms\clean.h(364): note: 编译 类 模板 成员函数 "int vcg::tri::Clean<CMeshO>::RemoveDuplicateEdge(CMeshO &)" 时
+  e:\dev\3rd\vcglib\vcg\complex\algorithms\clean.h(273): note: 参见对正在编译的函数 模板 实例化“int vcg::tri::Clean<CMeshO>::RemoveDuplicateEdge(CMeshO &)”的引用
+e:\dev\3rd\vcglib\vcg\complex\algorithms\local_optimization\tri_edge_collapse_quadric_tex.h(335): warning C4244: “参数”: 从“const double”转换到“const P3ScalarType”，可能丢失数据
+          with
+          [
+              P3ScalarType=float
+          ]
+  e:\dev\3rd\vcglib\vcg\complex\algorithms\local_optimization\tri_edge_collapse_quadric_tex.h(319): note: 编译 类 模板 成员函数 "float vcg::tri::TriEdgeCollapseQuadricTex<CMeshO,vcg::tri::VertexPair,vcg::tri::MyTriEdgeCollapseQTex,vcg::tri::QuadricTexHelper<CMeshO>>::ComputeTexPriority(const double [],vcg::Quadric5<double> &,vcg::BaseParameterClass *)" 时
+  e:\dev\3rd\vcglib\vcg\complex\algorithms\local_optimization\tri_edge_collapse_quadric_tex.h(443): note: 参见对正在编译的函数 模板 实例化“float vcg::tri::TriEdgeCollapseQuadricTex<CMeshO,vcg::tri::VertexPair,vcg::tri::MyTriEdgeCollapseQTex,vcg::tri::QuadricTexHelper<CMeshO>>::ComputeTexPriority(const double [],vcg::Quadric5<double> &,vcg::BaseParameterClass *)”的引用
+e:\dev\3rd\vcglib\vcg\simplex\vertex\component_ocf.h(535): warning C4244: “初始化”: 从“__int64”转换到“int”，可能丢失数据
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component_ocf.h(533): note: 编译 类 模板 成员函数 "int vcg::vertex::InfoOcf<Base>::Index(void) const" 时
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component_ocf.h(416): note: 参见对正在编译的函数 模板 实例化“int vcg::vertex::InfoOcf<Base>::Index(void) const”的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(37): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::InfoOcf<Base>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component.h(194): note: 参见对正在编译的 类 模板 实例化 "vcg::Arity1<Base,A>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf
+          ]
+  e:\dev\cesium-native\build\wrapercesium\simple\cmesh.h(33): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::Coord<vcg::Point3<float>,T>" 的引用
+          with
+          [
+              T=vcg::Arity1<vcg::vertex::EmptyCore<CUsedTypesO>,vcg::vertex::InfoOcf>
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(43): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::Coord3m<vcg::Arity1<Base,A>>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component.h(344): note: 参见对正在编译的 类 模板 实例化 "vcg::Arity2<Base,A,B>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(49): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::BitFlags<vcg::Arity2<Base,A,B>>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component.h(234): note: 参见对正在编译的 类 模板 实例化 "vcg::Arity3<Base,A,B,C>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags
+          ]
+  e:\dev\cesium-native\build\wrapercesium\simple\cmesh.h(37): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::Normal<vcg::Point3<float>,T>" 的引用
+          with
+          [
+              T=vcg::Arity3<vcg::vertex::EmptyCore<CUsedTypesO>,vcg::vertex::InfoOcf,vcg::vertex::Coord3m,vcg::vertex::BitFlags>
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(55): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::Normal3m<vcg::Arity3<Base,A,B,C>>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component.h(395): note: 参见对正在编译的 类 模板 实例化 "vcg::Arity4<Base,A,B,C,D>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m
+          ]
+  e:\dev\cesium-native\build\wrapercesium\simple\cmesh.h(41): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::Quality<Scalarm,T>" 的引用
+          with
+          [
+              T=vcg::Arity4<vcg::vertex::EmptyCore<CUsedTypesO>,vcg::vertex::InfoOcf,vcg::vertex::Coord3m,vcg::vertex::BitFlags,vcg::vertex::Normal3m>
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(62): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::Qualitym<vcg::Arity4<Base,A,B,C,D>>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component.h(367): note: 参见对正在编译的 类 模板 实例化 "vcg::Arity5<Base,A,B,C,D,E>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component.h(383): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::Color<vcg::Color4b,TT>" 的引用
+          with
+          [
+              TT=vcg::Arity5<vcg::vertex::EmptyCore<CUsedTypesO>,vcg::vertex::InfoOcf,vcg::vertex::Coord3m,vcg::vertex::BitFlags,vcg::vertex::Normal3m,vcg::vertex::Qualitym>
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(69): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::Color4b<vcg::Arity5<Base,A,B,C,D,E>>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component_ocf.h(275): note: 参见对正在编译的 类 模板 实例化 "vcg::Arity6<Base,A,B,C,D,E,F>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(77): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::VFAdjOcf<vcg::Arity6<Base,A,B,C,D,E,F>>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component_ocf.h(412): note: 参见对正在编译的 类 模板 实例化 "vcg::Arity7<Base,A,B,C,D,E,F,G>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b,
+              G=vcg::vertex::VFAdjOcf
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(85): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::MarkOcf<vcg::Arity7<Base,A,B,C,D,E,F,G>>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b,
+              G=vcg::vertex::VFAdjOcf
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component_ocf.h(388): note: 参见对正在编译的 类 模板 实例化 "vcg::Arity8<Base,A,B,C,D,E,F,G,H>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b,
+              G=vcg::vertex::VFAdjOcf,
+              H=vcg::vertex::MarkOcf
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component_ocf.h(406): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::TexCoordOcf<vcg::TexCoord2<float,1>,T>" 的引用
+          with
+          [
+              T=vcg::Arity8<vcg::vertex::EmptyCore<CUsedTypesO>,vcg::vertex::InfoOcf,vcg::vertex::Coord3m,vcg::vertex::BitFlags,vcg::vertex::Normal3m,vcg::vertex::Qualitym,vcg::vertex::Color4b,vcg::vertex::VFAdjOcf,vcg::vertex::MarkOcf>
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(94): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::TexCoordfOcf<vcg::Arity8<Base,A,B,C,D,E,F,G,H>>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b,
+              G=vcg::vertex::VFAdjOcf,
+              H=vcg::vertex::MarkOcf
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component_ocf.h(447): note: 参见对正在编译的 类 模板 实例化 "vcg::Arity9<Base,A,B,C,D,E,F,G,H,I>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b,
+              G=vcg::vertex::VFAdjOcf,
+              H=vcg::vertex::MarkOcf,
+              I=vcg::vertex::TexCoordfOcf
+          ]
+  e:\dev\cesium-native\build\wrapercesium\simple\cmesh.h(45): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::CurvatureDirOcf<vcg::vertex::CurvatureDirTypeOcf<float>,T>" 的引用
+          with
+          [
+              T=vcg::Arity9<vcg::vertex::EmptyCore<CUsedTypesO>,vcg::vertex::InfoOcf,vcg::vertex::Coord3m,vcg::vertex::BitFlags,vcg::vertex::Normal3m,vcg::vertex::Qualitym,vcg::vertex::Color4b,vcg::vertex::VFAdjOcf,vcg::vertex::MarkOcf,vcg::vertex::TexCoordfOcf>
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(103): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::CurvatureDirmOcf<vcg::Arity9<Base,A,B,C,D,E,F,G,H,I>>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b,
+              G=vcg::vertex::VFAdjOcf,
+              H=vcg::vertex::MarkOcf,
+              I=vcg::vertex::TexCoordfOcf
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\component_ocf.h(495): note: 参见对正在编译的 类 模板 实例化 "vcg::Arity10<Base,A,B,C,D,E,F,G,H,I,J>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b,
+              G=vcg::vertex::VFAdjOcf,
+              H=vcg::vertex::MarkOcf,
+              I=vcg::vertex::TexCoordfOcf,
+              J=vcg::vertex::CurvatureDirmOcf
+          ]
+  e:\dev\cesium-native\build\wrapercesium\simple\cmesh.h(49): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::RadiusOcf<Scalarm,T>" 的引用
+          with
+          [
+              T=vcg::Arity10<vcg::vertex::EmptyCore<CUsedTypesO>,vcg::vertex::InfoOcf,vcg::vertex::Coord3m,vcg::vertex::BitFlags,vcg::vertex::Normal3m,vcg::vertex::Qualitym,vcg::vertex::Color4b,vcg::vertex::VFAdjOcf,vcg::vertex::MarkOcf,vcg::vertex::TexCoordfOcf,vcg::vertex::CurvatureDirmOcf>
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(113): note: 参见对正在编译的 类 模板 实例化 "vcg::vertex::RadiusmOcf<vcg::Arity10<Base,A,B,C,D,E,F,G,H,I,J>>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b,
+              G=vcg::vertex::VFAdjOcf,
+              H=vcg::vertex::MarkOcf,
+              I=vcg::vertex::TexCoordfOcf,
+              J=vcg::vertex::CurvatureDirmOcf
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(32): note: 参见对正在编译的 类 模板 实例化 "vcg::Arity11<Base,A,B,C,D,E,F,G,H,I,J,K>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b,
+              G=vcg::vertex::VFAdjOcf,
+              H=vcg::vertex::MarkOcf,
+              I=vcg::vertex::TexCoordfOcf,
+              J=vcg::vertex::CurvatureDirmOcf,
+              K=vcg::vertex::RadiusmOcf
+          ]
+  e:\dev\3rd\vcglib\vcg\container\derivation_chain.h(124): note: 参见对正在编译的 类 模板 实例化 "vcg::DefaultDeriver<vcg::Arity11<Base,A,B,C,D,E,F,G,H,I,J,K>>" 的引用
+          with
+          [
+              Base=vcg::vertex::EmptyCore<CUsedTypesO>,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b,
+              G=vcg::vertex::VFAdjOcf,
+              H=vcg::vertex::MarkOcf,
+              I=vcg::vertex::TexCoordfOcf,
+              J=vcg::vertex::CurvatureDirmOcf,
+              K=vcg::vertex::RadiusmOcf
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\base.h(64): note: 参见对正在编译的 类 模板 实例化 "vcg::Arity12<vcg::vertex::EmptyCore<UserTypes>,A,B,C,D,E,F,G,H,I,J,K,L>" 的引用
+          with
+          [
+              UserTypes=CUsedTypesO,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b,
+              G=vcg::vertex::VFAdjOcf,
+              H=vcg::vertex::MarkOcf,
+              I=vcg::vertex::TexCoordfOcf,
+              J=vcg::vertex::CurvatureDirmOcf,
+              K=vcg::vertex::RadiusmOcf,
+              L=vcg::DefaultDeriver
+          ]
+  e:\dev\3rd\vcglib\vcg\simplex\vertex\base.h(193): note: 参见对正在编译的 类 模板 实例化 "vcg::VertexArityMax<UserTypes,A,B,C,D,E,F,G,H,I,J,K,L>" 的引用
+          with
+          [
+              UserTypes=CUsedTypesO,
+              A=vcg::vertex::InfoOcf,
+              B=vcg::vertex::Coord3m,
+              C=vcg::vertex::BitFlags,
+              D=vcg::vertex::Normal3m,
+              E=vcg::vertex::Qualitym,
+              F=vcg::vertex::Color4b,
+              G=vcg::vertex::VFAdjOcf,
+              H=vcg::vertex::MarkOcf,
+              I=vcg::vertex::TexCoordfOcf,
+              J=vcg::vertex::CurvatureDirmOcf,
+              K=vcg::vertex::RadiusmOcf,
+              L=vcg::DefaultDeriver
+          ]
+  e:\dev\cesium-native\build\wrapercesium\simple\cmesh.h(99): note: 参见对正在编译的 类 模板 实例化 "vcg::Vertex<CUsedTypesO,vcg::vertex::InfoOcf,vcg::vertex::Coord3m,vcg::vertex::BitFlags,vcg::vertex::Normal3m,vcg::vertex::Qualitym,vcg::vertex::Color4b,vcg::vertex::VFAdjOcf,vcg::vertex::MarkOcf,vcg::vertex::TexCoordfOcf,vcg::vertex::CurvatureDirmOcf,vcg::vertex::RadiusmOcf,vcg::DefaultDeriver>" 的引用
+e:\dev\3rd\vcglib\vcg\math\quadric5.h(239): warning C4244: “=”: 从“double”转换到“T”，可能丢失数据
+          with
+          [
+              T=float
+          ]
+  e:\dev\3rd\vcglib\vcg\complex\algorithms\local_optimization\tri_edge_collapse_quadric_tex.h(587): note: 参见对正在编译的函数 模板 实例化“void vcg::Quadric5<double>::byFace<CFaceO>(FaceType &,vcg::math::Quadric<double> &,vcg::math::Quadric<double> &,vcg::math::Quadric<double> &,bool,double)”的引用
+          with
+          [
+              FaceType=CFaceO
+          ]
+  e:\dev\3rd\vcglib\vcg\complex\algorithms\local_optimization\tri_edge_collapse_quadric_tex.h(587): note: 参见对正在编译的函数 模板 实例化“void vcg::Quadric5<double>::byFace<CFaceO>(FaceType &,vcg::math::Quadric<double> &,vcg::math::Quadric<double> &,vcg::math::Quadric<double> &,bool,double)”的引用
+          with
+          [
+              FaceType=CFaceO
+          ]
+  e:\dev\3rd\vcglib\vcg\complex\algorithms\local_optimization\tri_edge_collapse_quadric_tex.h(577): note: 编译 类 模板 成员函数 "void vcg::tri::TriEdgeCollapseQuadricTex<CMeshO,vcg::tri::VertexPair,vcg::tri::MyTriEdgeCollapseQTex,vcg::tri::QuadricTexHelper<CMeshO>>::InitQuadric(TriMeshType &,vcg::BaseParameterClass *)" 时
+          with
+          [
+              TriMeshType=CMeshO
+          ]
+  e:\dev\3rd\vcglib\vcg\complex\algorithms\local_optimization\tri_edge_collapse_quadric_tex.h(627): note: 参见对正在编译的函数 模板 实例化“void vcg::tri::TriEdgeCollapseQuadricTex<CMeshO,vcg::tri::VertexPair,vcg::tri::MyTriEdgeCollapseQTex,vcg::tri::QuadricTexHelper<CMeshO>>::InitQuadric(TriMeshType &,vcg::BaseParameterClass *)”的引用
+          with
+          [
+              TriMeshType=CMeshO
+          ]
+e:\dev\3rd\vcglib\vcg\math\quadric5.h(240): warning C4244: “=”: 从“double”转换到“T”，可能丢失数据
+          with
+          [
+              T=float
+          ]
+  正在生成代码...
+e:\dev\3rd\vcglib\vcg\complex\algorithms\local_optimization\tri_edge_collapse_quadric.h(329): warning C4756: 常量算法中溢出
+e:\dev\3rd\vcglib\vcg\complex\algorithms\local_optimization\tri_edge_collapse_quadric.h(347): warning C4756: 常量算法中溢出
+e:\dev\3rd\vcglib\vcg\complex\algorithms\clean.h(811): warning C4756: 常量算法中溢出

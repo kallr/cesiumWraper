@@ -30,20 +30,8 @@
 
 #include "cmesh.h"
  
-#include <vcg/complex/algorithms/update/bounding.h>
-#include <vcg/complex/algorithms/update/color.h>
-#include <vcg/complex/algorithms/update/flag.h>
-#include <vcg/complex/algorithms/update/normal.h>
-#include <vcg/complex/algorithms/update/position.h>
-#include <vcg/complex/algorithms/update/quality.h>
-#include <vcg/complex/algorithms/update/selection.h>
-#include <vcg/complex/algorithms/update/topology.h>
-
-#include <wrap/callback.h>
-#include <wrap/io_trimesh/io_mask.h>
-#include <wrap/io_trimesh/additionalinfo.h>
-#include <wrap/io_trimesh/io_material.h>
-
+ 
+ 
  /*
 MeshModel Class
 The base class for representing a single mesh.

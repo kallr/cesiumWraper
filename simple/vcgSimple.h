@@ -26,7 +26,11 @@ namespace vcg
 			static CVertexO::ScalarType W(CVertexO * /*v*/) { return 1.0; }
 			static CVertexO::ScalarType W(CVertexO & /*v*/) { return 1.0; }
 			static void Merge(CVertexO & /*v_dest*/, CVertexO const & /*v_del*/) {}
-			static QuadricTemp* &TDp() { static QuadricTemp *td; return td; }
+			static QuadricTemp* &TDp()
+			{
+				thread_local  static QuadricTemp *td;
+				return td;
+			}
 			static QuadricTemp &TD() { return *TDp(); }
 		};
 

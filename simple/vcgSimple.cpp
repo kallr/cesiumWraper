@@ -2,21 +2,8 @@
 #include "mesh_model.h"
 
 #include <vcg/complex/algorithms/clean.h>
-#include <vcg/complex/algorithms/stat.h>
-#include <vcg/complex/algorithms/smooth.h>
-#include <vcg/complex/algorithms/hole.h>
-#include <vcg/complex/algorithms/refine_loop.h>
-#include <vcg/complex/algorithms/bitquad_support.h>
-#include <vcg/complex/algorithms/bitquad_creation.h>
-#include <vcg/complex/algorithms/clustering.h>
-#include <vcg/complex/algorithms/attribute_seam.h>
-#include <vcg/complex/algorithms/update/curvature.h>
-#include <vcg/complex/algorithms/update/curvature_fitting.h>
-#include <vcg/complex/algorithms/pointcloud_normal.h>
-#include <vcg/complex/algorithms/isotropic_remeshing.h>
 #include <vcg/complex/algorithms/local_optimization/tri_edge_collapse_quadric.h>
 
-#include <vcg/space/fitting3.h>
  
 using namespace vcg;
 
@@ -41,25 +28,42 @@ void QuadricTexSimplification(double& TargetError,CMeshO &m,int  TargetFaceNum, 
 
   tri::QuadricTexHelper<CMeshO>::Quadric5Temp TD(m.vert,qv);
   tri::QuadricTexHelper<CMeshO>::TDp()=&TD;
-
  
 	
   vcg::LocalOptimization<CMeshO> DeciSession(m,&pp);
 
 	DeciSession.Init<tri::MyTriEdgeCollapseQTex>();
 
+
+	double maxError = 5;
+  if (DeciSession.currMetric >= maxError)
+	{
+    DeciSession.Finalize<tri::MyTriEdgeCollapseQTex>();
+
+    tri::QuadricTexHelper<CMeshO>::TDp3() = nullptr;
+    tri::QuadricTexHelper<CMeshO>::TDp() = nullptr;
+
+    return;
+  }
+
 	int faceSize = m.FN()*0.9;
 
 	DeciSession.SetTargetSimplices(faceSize);
 	DeciSession.SetTimeBudget(0.1f);
-	int nNum = 0;
-	while (m.FN() > TargetFaceNum && nNum <30 )
+	DeciSession.SetTargetMetric(maxError);
+
+	CMeshO bakM = m;
+  int nNum = 0;
+
+  while (m.FN() > TargetFaceNum && nNum < 30 &&   DeciSession.currMetric < maxError)
 	{
-		while (DeciSession.DoOptimization() && m.fn > faceSize)
+    while (m.fn > faceSize && DeciSession.currMetric < maxError &&  DeciSession.DoOptimization())
 		{
+      if (DeciSession.currMetric <= maxError)
+        bakM = m;
 		};
 
-		faceSize = (m.FN() * 0.9);
+		faceSize = m.FN() * 0.9;
 
 		if (faceSize < TargetFaceNum)
 			faceSize = TargetFaceNum;
@@ -71,10 +75,13 @@ void QuadricTexSimplification(double& TargetError,CMeshO &m,int  TargetFaceNum, 
  	TargetError = DeciSession.currMetric;
 
 	DeciSession.Finalize<tri::MyTriEdgeCollapseQTex>();
-
 	
   tri::QuadricTexHelper<CMeshO>::TDp3()=nullptr;
   tri::QuadricTexHelper<CMeshO>::TDp()=nullptr;
+
+	if (TargetError > maxError) {
+		m = bakM;
+	}
 }
 
 
@@ -89,23 +96,34 @@ void QuadricSimplification(double& TargetError,  CMeshO &m, int  TargetFaceNum, 
 
 	DeciSession.Init<tri::MyTriEdgeCollapse >();
 
+	double maxError = 1;
+
+	if (DeciSession.currMetric >= maxError)
+	{
+		DeciSession.Finalize<tri::MyTriEdgeCollapse >();
+		tri::QHelper::TDp() = nullptr;
+		return;
+	}
+
 	int faceSize = m.fn*0.9;
 
+	
 	DeciSession.SetTargetSimplices(faceSize);
 	DeciSession.SetTimeBudget(0.1f);
+	DeciSession.SetTargetMetric(maxError);
 
-	TargetError = DeciSession.currMetric;
-
+	CMeshO bakM = m;
 	int nNum = 0;
-	double maxError=1000;
-	while (m.fn > TargetFaceNum && nNum <30 && TargetError < maxError )
+	while (m.fn > TargetFaceNum && nNum <30 && DeciSession.currMetric < maxError )
 	{
-		while (DeciSession.DoOptimization() && m.fn > faceSize && TargetError<maxError)
+		while (m.fn > faceSize && DeciSession.currMetric < maxError && DeciSession.DoOptimization() )
 		{
-			TargetError = DeciSession.currMetric;
+			if(DeciSession.currMetric <= maxError)
+				bakM = m;
 		};
 
 		faceSize = (m.fn * 0.9);
+
 		if (faceSize < TargetFaceNum)
 			faceSize = TargetFaceNum;
 
@@ -113,11 +131,17 @@ void QuadricSimplification(double& TargetError,  CMeshO &m, int  TargetFaceNum, 
 		nNum++;
 	}
 
+
 	TargetError = DeciSession.currMetric;
 
 	DeciSession.Finalize<tri::MyTriEdgeCollapse >();
-
 	tri::QHelper::TDp() = nullptr;
+
+	if (TargetError > maxError)
+	{
+		m = bakM;	
+	}
+
 }
 
 bool quadric_simplificationTex(double& TargetError, MeshModel& m,double TargetFaceNum,bool bkeepBorder)
@@ -166,7 +190,7 @@ bool quadric_simplification(double& TargetError, MeshModel& m,double factor,bool
 	if(TargetFaceNum == 0)
 		return false;
 
-	//是否必要
+	////是否必要
 	if (TargetFaceNum <= 5)
 		TargetFaceNum += 3;
 	else if (TargetFaceNum <= 10)

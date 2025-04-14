@@ -2,7 +2,6 @@
 #include "cmesh.h"
 #include "vcgSimple.h"
 #include "mesh_model.h"
-#include <wrap/io_trimesh/export_obj.h>
 #include "../wraperCesium.h"
 #include "../threadpool.h"
 using namespace vcg;
@@ -440,7 +439,7 @@ namespace SIMPLE
 			fromMesh_func(*mesh, m);
  	}
 
-	int threadCount = 1;//不支持多线程
+	int threadCount = 1;
 
 	bool SimpleMeshByFator_func(wraperCesium::GMesh& mesh, double factor, double& targetError)
 	{
