@@ -261,6 +261,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
+    <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\extern\meshoptimizer\gltf\gltfpack.h" />
