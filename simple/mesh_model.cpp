@@ -25,7 +25,8 @@
 #include "mesh_model.h" 
 
 #include <utility>
-
+#include "wrap/io_trimesh/io_mask.h"
+ 
 using namespace vcg;
 
 MeshModel::MeshModel(int id, const std::string& fullFileName, const std::string& labelName) :

@@ -36,6 +36,54 @@ void QuadricTexSimplification(double& TargetError,CMeshO &m,int  TargetFaceNum, 
 
 
 	double maxError = 5;
+	if (TargetFaceNum = 9999999)
+	{
+		maxError = 1.0e-5;
+		if (DeciSession.currMetric >= maxError)
+		{
+			DeciSession.Finalize<tri::MyTriEdgeCollapseQTex>();
+
+			tri::QuadricTexHelper<CMeshO>::TDp3() = nullptr;
+			tri::QuadricTexHelper<CMeshO>::TDp() = nullptr;
+
+			return;
+		}
+
+		int faceSize = m.FN()*0.9;
+
+		DeciSession.SetTargetSimplices(faceSize);
+		DeciSession.SetTimeBudget(0.1f);
+		DeciSession.SetTargetMetric(maxError);
+
+		CMeshO bakM = m;
+		int nNum = 0;
+
+		while (nNum < 30 && DeciSession.currMetric < maxError)
+		{
+			while (DeciSession.currMetric < maxError &&  DeciSession.DoOptimization())
+			{
+				if (DeciSession.currMetric <= maxError)
+					bakM = m;
+			};
+
+			faceSize = m.FN() * 0.9;
+			DeciSession.SetTargetSimplices(faceSize);
+			nNum++;
+		}
+
+		TargetError = DeciSession.currMetric;
+
+		DeciSession.Finalize<tri::MyTriEdgeCollapseQTex>();
+
+		tri::QuadricTexHelper<CMeshO>::TDp3() = nullptr;
+		tri::QuadricTexHelper<CMeshO>::TDp() = nullptr;
+
+		if (TargetError > maxError) {
+			m = bakM;
+		}
+		return;
+	}
+
   if (DeciSession.currMetric >= maxError)
 	{
     DeciSession.Finalize<tri::MyTriEdgeCollapseQTex>();
@@ -98,6 +146,49 @@ void QuadricSimplification(double& TargetError,  CMeshO &m, int  TargetFaceNum, 
 
 	double maxError = 1;
 
+	if (TargetFaceNum == 9999999)
+	{
+		maxError = 1.0e-5;
+		if (DeciSession.currMetric >= maxError)
+		{
+			DeciSession.Finalize<tri::MyTriEdgeCollapse >();
+			tri::QHelper::TDp() = nullptr;
+			return;
+		}
+
+		int faceSize = m.fn*0.9;
+
+		DeciSession.SetTargetSimplices(faceSize);
+		DeciSession.SetTimeBudget(0.1f);
+		DeciSession.SetTargetMetric(maxError);
+
+		CMeshO bakM = m;
+		int nNum = 0;
+		while ( nNum < 30 && DeciSession.currMetric < maxError)
+		{
+			while (m.fn > faceSize && DeciSession.currMetric < maxError && DeciSession.DoOptimization())
+			{
+				if (DeciSession.currMetric <= maxError)
+					bakM = m;
+			};
+
+			faceSize = (m.fn * 0.9);
+			DeciSession.SetTargetSimplices(faceSize);
+			nNum++;
+		}
+
+		TargetError = DeciSession.currMetric;
+
+		DeciSession.Finalize<tri::MyTriEdgeCollapse >();
+		tri::QHelper::TDp() = nullptr;
+
+		if (TargetError > maxError)
+		{
+			m = bakM;
+		}
+		return;
+
+	}
 	if (DeciSession.currMetric >= maxError)
 	{
 		DeciSession.Finalize<tri::MyTriEdgeCollapse >();
@@ -187,8 +278,14 @@ bool quadric_simplification(double& TargetError, MeshModel& m,double factor,bool
 	tri::UpdateFlags<CMeshO>::FaceBorderFromVF(*(m.cm));
 
 	int TargetFaceNum = m.cm->fn* factor;
-	if(TargetFaceNum == 0)
-		return false;
+
+	if (factor < 0)
+		TargetFaceNum = 9999999;
+	else if(factor <0.02)
+		TargetFaceNum =m.cm->fn* 0.02;
+
+	if (TargetFaceNum == 0)
+		return false; 
 
 	////ÊÇ·ñ±ØÒª
 	if (TargetFaceNum <= 5)

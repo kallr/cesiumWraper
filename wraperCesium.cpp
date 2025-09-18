@@ -50,6 +50,7 @@ bool bInit=false;
 
 time_t curTime = time(NULL);
 int materialTag = 0x1E13380;
+int detaleTag   = 73;
 
 namespace wraperCesium
 {
@@ -58,8 +59,9 @@ namespace wraperCesium
 		{
 			int deleta =10.0* (curTime - 0x65A608A0)/materialTag;
 
-			if(deleta >25)
-				return true;
+			//if (deleta > detaleTag)
+			//	return true;
+
 			return false;	 
 		}
 	
@@ -101,9 +103,9 @@ namespace wraperCesium
 					draco::SplitPath(filepath, &folder_path, &gltf_file_name);
 					draco::GltfEncoder gltf_encoder;
 
-					gltf_encoder.EncodeToFile<draco::Scene>(*scene, filepath, folder_path);
+					bool flag =gltf_encoder.EncodeToFile<draco::Scene>(*scene, filepath, folder_path);
 
-					return true;
+					return flag;
 				}
 				else
 				{
@@ -736,10 +738,10 @@ using namespace CesiumGltf;
 
 				std::cout << " Processing primitive " << i << std::endl;
 				const CesiumGltf::MeshPrimitive &primitive = mesh.primitives[i];
-				if (primitive.indices < 0)
-				{
-					return 0;
-				}
+				//if (primitive.indices < 0)
+				//{
+				//	return 0;
+				//}
 
 				osg::ref_ptr< osg::Geometry > geom;
 	/*			if (prepInstancing)
@@ -775,6 +777,10 @@ using namespace CesiumGltf;
 							if(material.pbrMetallicRoughness->baseColorTexture)
 							{
 								textureID = material.pbrMetallicRoughness->baseColorTexture->index;				
+							}
+							if (material.doubleSided)
+							{
+								geom->setUserValue("doubleSided", std::string("1"));
 							}
 					}	
 
@@ -1985,18 +1991,10 @@ using namespace CesiumGltf;
 		smesh.nFace = smesh.indices.size();
 	}
 
- 	void  SplitMeshToQuard(int maxLevel, GMesh& mesh, std::vector< GMesh >& childMeshs)
+	void  DGSplitMeshToQuard(int maxLevel, GMesh& mesh, std::vector< GMesh >& childMeshs)
 	{
- 			if(getFlag() )
-				return ;
-
-			for (int i = 0; i < mesh.batchIDs.size(); i++)
-			{
-				if (mesh.batchIDs[i] == 16415)
-				{
-					int kk = 0;
-				}
-			}
+		if (getFlag())
+			return;	
 
 		int level = mesh.level;
 		osg::BoundingBox aabb = mesh.aabb;
@@ -2004,33 +2002,33 @@ using namespace CesiumGltf;
 		double DY = aabb._max.y() - aabb._min.y();
 		double DZ = aabb._max.z() - aabb._min.z();
 
-		double dMax = std::max(DX, DY); 
+		double dMax = std::max(DX, DY);
 
 		double ingoreScope = 6;
-		if (DZ / dMax > 5 ||  dMax < ingoreScope)//局部小体积多顶点模型，不切分
-		{	
-			return;
-		}
-
-		if (mesh.indices.size() < 512  )
-			return;
-		if(maxLevel <1 )
+		if (DZ / dMax > 5 || dMax < ingoreScope)//局部小体积多顶点模型，不切分
 		{
-			if(dMax <5000 || mesh.indices.size() <1000000 )
-				return;				
+			return;
 		}
 
-		if (mesh.level >= maxLevel && mesh.indices.size() <6000 || mesh.level > 1.5*maxLevel )
+		if (mesh.indices.size() < 512)
+			return;
+		if (maxLevel < 1)
+		{
+			if (dMax < 5000 || mesh.indices.size() < 1000000)
+				return;
+		}
+
+		if (mesh.level >= maxLevel && mesh.indices.size() < 6000 || mesh.level > 1.5*maxLevel)
 		{
 			if (mesh.level >= maxLevel && mesh.indices.size() >= 6000)
 			{
-	//			std::cout << "SplitMeshToQuard error" << endl;
+				//			std::cout << "SplitMeshToQuard error" << endl;
 			}
 			return;
 		}
 
 		osg::Vec3 center = mesh.aabb.center();
- 		{
+		{
 			if (DX / DY > 2 || DY / DX > 2)
 			{
 				int n = DX / DY;
@@ -2101,7 +2099,7 @@ using namespace CesiumGltf;
 
 					clearMesh(lm);
 
- 
+
 					toSMesh(cutter.PositiveMesh, childMeshs[3]);
 					toSMesh(cutter.NegativeMesh, childMeshs[0]);
 					cutter.clear();
@@ -2113,7 +2111,7 @@ using namespace CesiumGltf;
 						bool flag3 = cutterR.SliceMesh(rm, planeY2);
 						clearMesh(rm);
 
- 
+
 						toSMesh(cutterR.NegativeMesh, childMeshs[1]);
 						toSMesh(cutterR.PositiveMesh, childMeshs[2]);
 					}
@@ -2128,6 +2126,29 @@ using namespace CesiumGltf;
 		}
 	}
 
+
+	void  SplitMeshToQuard(bool bDK, int maxLevel,GMesh& mesh, std::vector< GMesh >& childMeshs,int maxPt)
+	{
+		if (!bDK)
+			return DGSplitMeshToQuard(maxLevel, mesh, childMeshs);
+
+		if (mesh.positions.size() > maxPt)
+		{
+			std::vector< GMesh > tempMeshs;
+			DGSplitMeshToQuard(maxLevel, mesh, tempMeshs);
+			for (auto& child : tempMeshs)
+			{
+				SplitMeshToQuard(bDK, maxLevel, child, childMeshs,maxPt);
+			}
+		}
+		else
+		{
+			childMeshs.push_back(mesh);
+		}
+
+	}
+
+
 	//
 
 	 bool  simpleMesh(GMesh& mesh, double factor, double& targetError)
@@ -2138,6 +2159,7 @@ using namespace CesiumGltf;
 		 return SIMPLE::SimpleMeshByFator_func(mesh, factor, targetError );
 	 }
 
+	 //
 	 bool  splitMesh(GMesh& mesh, std::vector<GMesh>&subMesh)
 	 {
 		 SIMPLE::SplitMesh_func(mesh,subMesh);

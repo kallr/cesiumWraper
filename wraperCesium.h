@@ -58,7 +58,7 @@ namespace osg
 		WRAPERCESIUM_API  osg::Group* cesiumLoadGltf(std::string& data,const std::string& textureDir);
 
 
-	WRAPERCESIUM_API void  SplitMeshToQuard(int maxLevel, GMesh& mesh, std::vector< GMesh >& childMeshs);
+	WRAPERCESIUM_API void  SplitMeshToQuard(bool bDK,int maxLevel, GMesh& mesh, std::vector< GMesh >& childMeshs,int maxPt);
 
 	WRAPERCESIUM_API bool  simpleMesh(GMesh& mesh, double factor, double& targetError);
 

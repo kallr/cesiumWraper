@@ -4,6 +4,9 @@
 #include "mesh_model.h"
 #include "../wraperCesium.h"
 #include "../threadpool.h"
+#include "wrap/io_trimesh/io_mask.h"
+#include "vcg/complex/algorithms/clean.h"
+
 using namespace vcg;
  
 void GeometryToMesh( wraperCesium::GMesh& mesh, osg::Geometry* geometry)
@@ -403,10 +406,6 @@ namespace SIMPLE
 {
 	void  simple_Function(wraperCesium::GMesh* mesh, double factor, bool bKeepBorder)
 	{
-		int nTri = mesh->indices.size() / 3;
-
-		int nFinal = nTri * factor;
-
 		int mask = 0;
 		if (!mesh->UVs.empty())
 		{
@@ -445,8 +444,6 @@ namespace SIMPLE
 	{
 		if (mesh.primitiveType == 1)return true;
 
-		if (factor < 0.02)
-			factor = 0.02;
 
 		std::unordered_map<int,wraperCesium::GMesh> objIDs;
 
@@ -461,6 +458,7 @@ namespace SIMPLE
 			if (it != objIDs.end())
 			{
 				int nSize = it->second.indices.size();
+
 				it->second.indices.push_back(nSize+0);
 				it->second.indices.push_back(nSize+1);
 				it->second.indices.push_back(nSize+2);
@@ -524,58 +522,10 @@ namespace SIMPLE
 		if (abs(mesh.batchIDs[0] - 9999999) < 0.1)
 			bKeepBorder = true;
 
-		struct threadParam {
-			int nCount = 0;
-			int iterator = 0;
-			std::mutex lock;
-			double factor;
-			bool bKeepB;
-			std::vector< std::pair<int, wraperCesium::GMesh* > > objArray;
-		};
-
-		if (threadCount >1 )
-		{
-			threadParam params;
-			params.factor = factor;
-			params.bKeepB = bKeepBorder;
-			params.nCount = objIDs.size();
-
- 			for (auto& item : objIDs)
-			{
-				params.objArray.push_back(std::make_pair(item.first, &item.second));
-			}
-
-			// 采用多线程执行
-			auto gen_dispatch = [](threadParam* param) -> void {
-				int count = param->nCount;
-				int row;
-				while (true)
-				{
-					{
-						std::lock_guard<std::mutex> lck(param->lock);
-						row = param->iterator++;
-						if (row >= count)
-							break;
-					}
-
-					simple_Function( param->objArray[row].second,param->factor, param->bKeepB);
-				}
-			};
-
-
-			std::vector<std::thread> threads(threadCount);
-			for (int ti = 0; ti < threadCount; ti++) {
-				threads[ti] = std::move(std::thread(gen_dispatch, &params));
-			}
-			std::for_each(threads.begin(), threads.end(), std::mem_fn(&std::thread::join));	 
+		for (auto& item : objIDs) {
+			simple_Function(&item.second, factor, bKeepBorder);
 		}
-		else
-		{
-			for (auto& item : objIDs){
-				simple_Function(&item.second, factor, bKeepBorder);
- 			}
-		}
-
+ 
 		//merge
 		clearMesh(mesh);
   
