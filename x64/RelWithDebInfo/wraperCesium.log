@@ -1,4 +1,0 @@
-﻿  复制了 4 个文件
-    正在创建库 E:\dev\cesium-native\build\x64\Release\WRAPERCESIUM.lib 和对象 E:\dev\cesium-native\build\x64\Release\WRAPERCESIUM.exp
-  LINK : 已指定 /LTCG，但不需要生成代码；从链接命令行中移除 /LTCG 以提高链接器性能
-  wraperCesium.vcxproj -> E:\dev\cesium-native\build\x64\Release\WRAPERCESIUM.dll
