@@ -40,6 +40,8 @@ namespace osg
 			std::vector< osg::Vec3> positions;
 			std::vector< osg::Vec2> UVs;
 			std::vector< osg::Vec4> colors;
+			std::vector< osg::Vec3> normals;
+
 			std::vector<float>batchIDs;
 		 };
 		void clearMesh(GMesh& smesh);

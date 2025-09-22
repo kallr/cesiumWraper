@@ -6,7 +6,7 @@ namespace wraperCesium
 }
 namespace SIMPLE
 {
-	/**Ä£ÐÍ¼ò»¯
+	/**
 	 * 
 	 */
 	bool SimpleMeshByFator_func(wraperCesium::GMesh& mesh, double factor, double& targetError);

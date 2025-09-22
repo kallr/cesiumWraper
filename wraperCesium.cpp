@@ -1937,6 +1937,7 @@ using namespace CesiumGltf;
 			smesh.UVs.clear();
 			smesh.indices.clear();
 			smesh.colors.clear();
+			smesh.normals.clear();
 	}
 
 	void   toSMesh(TempMesh& tMesh, GMesh& smesh)

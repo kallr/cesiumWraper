@@ -9,70 +9,7 @@
 
 using namespace vcg;
  
-void GeometryToMesh( wraperCesium::GMesh& mesh, osg::Geometry* geometry)
-{
-	osg::Vec3Array *pVertices = (osg::Vec3Array*)geometry->getVertexArray();
-	osg::Vec3Array* inputNormals = (osg::Vec3Array*)geometry->getNormalArray();
-	osg::Vec4Array* inputColors = (osg::Vec4Array*)geometry->getColorArray();
-	osg::Vec2Array* tex_coords = (osg::Vec2Array*)(geometry->getTexCoordArray(0));
  
-	bool bColor = false;
-	if (inputColors && (inputColors->getBinding() == 4))
-	{
-		if(inputColors->size() == pVertices->size() )
-			bColor = true;	 
-	}
-	bool bTC = false;
-	if (tex_coords && (tex_coords->getBinding() == 4))
-	{
-		if (tex_coords->size() == pVertices->size())
-			bTC = true;
-	}
-
-	int nSet = geometry->getNumPrimitiveSets();
-	for (int i = 0; i < nSet; i++)
-	{
-		osg::PrimitiveSet*  pPrimitiveSet = geometry->getPrimitiveSet(i);
-		osg::PrimitiveSet::Type type = pPrimitiveSet->getType();
-		if (type == osg::PrimitiveSet::DrawElementsUIntPrimitiveType || type == osg::PrimitiveSet::DrawElementsUShortPrimitiveType || type == osg::PrimitiveSet::DrawArraysPrimitiveType)
-		{
-			auto mode = pPrimitiveSet->getMode();
-
-			if (mode == GL_TRIANGLES)
-			{
-				int num = pPrimitiveSet->getNumIndices();
-				for (int i = 0; i < num; i++)
-				{
-					int index = pPrimitiveSet->index(i);
-					
-					mesh.positions.push_back(pVertices->at(index) );
-
-					if (bColor)
-					{
-						mesh.colors.push_back(inputColors->at(index));
-					}		 
-					if (bTC)
-					{
-						mesh.UVs.push_back(tex_coords->at(index)); 
-					}	
-
-					mesh.indices.push_back(i);
-				}
-			}
-			else
-			{
-				int kk = 0;
-			}
-		}
-		else
-		{
-			int kk = 0;
-		}
-	}
-
-	mesh.batchIDs.resize(mesh.positions.size(), 0);
-}
-
 
 void toMesh_func(wraperCesium::GMesh& mesh, CMeshO& m, int mask)
 {
@@ -92,14 +29,13 @@ void toMesh_func(wraperCesium::GMesh& mesh, CMeshO& m, int mask)
 		bColor = true;
 	}
 
-	bool bID = false;
-	//if (mesh.batchIDs.size() == nPtSize)
-	//{
-	//	bID = true;
-	//}
+	bool bNormal = false;
+	if (mesh.normals.size() == nPtSize)
+	{
+		bNormal = true;
+	}
 
-	int idF = 255 * 255;
-
+ 
 	vcg::Point3<float> onePtNor;
 	vcg::Point4<unsigned char> onePtColor;
 	int num = mesh.indices.size();
@@ -128,38 +64,40 @@ void toMesh_func(wraperCesium::GMesh& mesh, CMeshO& m, int mask)
 
 			if (bText)
 			{
-				osg::Vec2 t = mesh.UVs[mesh.indices[3 * i + j]];
-				m.face[i].WT(j).u() = t.x();
-				m.face[i].WT(j).v() = t.y();
-				m.face[i].WT(j).n() = 0;
+				osg::Vec2 t = mesh.UVs[mesh.indices[3 * i + j]];	
 
 				m.face[i].V(j)->T().u() = t.x();
 				m.face[i].V(j)->T().v() = t.y();
 				m.face[i].V(j)->T().n() = 0;
 			}
-			if (bID)
+			if (bNormal)
 			{
+				osg::Vec3 t = mesh.normals[mesh.indices[3 * i + j]];
+
+				onePtNor[0] = t[0];
+				onePtNor[1] = t[1];
+				onePtNor[2] = t[2];
+
 				m.face[i].V(j)->N().Import(onePtNor);
 			}
+
 			if (bColor)
 			{
 				osg::Vec4 color = (mesh.colors[mesh.indices[3 * i + j]]);
+
 				onePtColor[0] = color[0] * 255;
 				onePtColor[1] = color[1] * 255;
 				onePtColor[2] = color[2] * 255;
 				onePtColor[3] = color[3] * 255;
+
  				m.face[i].V(j)->C().Import(onePtColor);	
 			}
+		 
 			m.face[i].ClearF(j);
 		}
 
 		if (HasPerFaceNormal(m))
 		{
-			if (bText )
-			{
-				m.face[i].C() = vcg::Color4b(255);
- 			}
-
 			m.face[i].N().Import(TriangleNormal(m.face[i]).Normalize());
 		}
  	}
@@ -170,7 +108,7 @@ void fromMesh_func(wraperCesium::GMesh& mesh, CMeshO& m)
 {
 	int nPtSize = mesh.positions.size();
 
-	int idF = 256 * 256;
+
 	bool bText = false;
 	if (mesh.UVs.size() == nPtSize)
 		bText = true;
@@ -179,16 +117,31 @@ void fromMesh_func(wraperCesium::GMesh& mesh, CMeshO& m)
 	if (mesh.colors.size() == nPtSize)
 		bColor = true;
 
+	bool bNormal = false;
+	if (mesh.normals.size() == nPtSize)
+	{
+		bNormal = true;
+	}
 
 	std::vector<int> VertexId(m.vert.size());
  
  
 	std::vector<osg::Vec3d> positions;
 	std::vector<osg::Vec4> colors;
+	std::vector<osg::Vec2> uvs;
+	std::vector<osg::Vec3> normals;
+
 	positions.resize(m.vn);
 
 	if(bColor)
-		colors.resize(m.vn); 
+		colors.resize(m.vn);
+	if (bText)
+		uvs.resize(m.vn);
+
+	if (bNormal)
+		normals.resize(m.vn);
+
+
 	{
 		int numvert = 0;
 		for (auto vi = m.vert.begin(); vi != m.vert.end(); ++vi)
@@ -213,6 +166,24 @@ void fromMesh_func(wraperCesium::GMesh& mesh, CMeshO& m)
 				float z = xx[2]/255.0;
 				float w = xx[3]/255.0;
 				colors.at(numvert) =osg::Vec4{ x,y,z,w };
+			}
+			if (bNormal)
+			{
+				const auto& xx = vi->N();
+
+				float x = xx[0];
+				float y = xx[1];
+				float z = xx[2];
+ 				normals.at(numvert) = osg::Vec3{ x,y,z};
+			}
+			if (bText)
+			{
+				const auto& xx = vi->T();
+
+				float x = xx.u();
+				float y = xx.v();
+		 
+				uvs.at(numvert) = osg::Vec2{ x,y};
 			}
 			numvert++; 
 		}
@@ -244,24 +215,6 @@ void fromMesh_func(wraperCesium::GMesh& mesh, CMeshO& m)
 			{
 				int vInd = VertexId[vcg::tri::Index(m, (*fi).V(k))];
 
-				if (bText)
-				{
-					float uu = (*fi).WT(k).u();
-					float vv = (*fi).WT(k).v();
-					if (k == 0)
-					{
-						uvs1[order] = { uu, vv };
-					}
-					if (k == 1)
-					{
-						uvs2[order] = { uu, vv };
-					}
-					if (k == 2)
-					{
-						uvs3[order] = { uu, vv };
-					}
- 				}
-
 				if ( k == 0 )
 					p1s[order]=(vInd);
 				else if (k == 1)
@@ -281,6 +234,8 @@ void fromMesh_func(wraperCesium::GMesh& mesh, CMeshO& m)
 			mesh.colors.resize(triangelCount * 3);
 		if(bText)
 			mesh.UVs.resize(triangelCount * 3);
+		if (bNormal)
+			mesh.normals.resize(triangelCount * 3);
 
 		for (int j = 0; j < triangelCount; j++)
 		{
@@ -300,108 +255,21 @@ void fromMesh_func(wraperCesium::GMesh& mesh, CMeshO& m)
 			}
 			if (bText)
 			{
-				mesh.UVs[3 * j + 0] = uvs1[j];
-				mesh.UVs[3 * j + 1] = uvs2[j];
-				mesh.UVs[3 * j + 2] = uvs3[j];
+				mesh.UVs[3 * j + 0] = (uvs[p1s[j]]);
+				mesh.UVs[3 * j + 1] = (uvs[p2s[j]]);
+				mesh.UVs[3 * j + 2] = (uvs[p3s[j]]);
+			}
+			if (bNormal)
+			{
+				mesh.normals[3 * j + 0] = (normals[p1s[j]]);
+				mesh.normals[3 * j + 1] = (normals[p2s[j]]);
+				mesh.normals[3 * j + 2] = (normals[p3s[j]]);
 			}
 		}
 	} 
 }
 
-////////////////////////////////¹«ÓÃ¶¥µã
-void fromMesh_funcEx(wraperCesium::GMesh& mesh, CMeshO& m)
-{
-	int nPtSize = mesh.positions.size();
-
-	int idF = 256 * 256;
-	bool bText = false;
-	if (mesh.UVs.size() == nPtSize)
-		bText = true;
  
-	bool bColor = false;
-	if (mesh.colors.size() == nPtSize)
-		bColor = true;
-
-
-	std::vector<int> VertexId(m.vert.size());
- 
- 
-	std::vector<osg::Vec3> positions;
-	std::vector<osg::Vec4> colors;
-	positions.resize(m.vn);
-
-	if(bColor)
-		colors.resize(m.vn);
-
- 
-
-	{
-		int numvert = 0;
-		for (auto vi = m.vert.begin(); vi != m.vert.end(); ++vi)
-		{
-			if ((*vi).IsD())continue;
-
-			VertexId[vi - m.vert.begin()] = numvert;
-
-			const auto& xx = vi->P();
-
-			float x = xx[0];
-			float y = xx[1];
-			float z = xx[2];
-			positions.at(numvert) = osg::Vec3(x, y, z);
-	
-			if (bColor)
-			{
-				const auto& xx = vi->C();
-
-				float x = xx[0]/255.0;
-				float y = xx[1]/255.0;
-				float z = xx[2]/255.0;
-				float w = xx[3]/255.0;
-				colors.at(numvert) =osg::Vec4{ x,y,z,w };
-			}
-			numvert++; 
-		}
- 
-		//
-		std::vector<osg::Vec2> uvs1;
-		if(bText)
-			uvs1.resize(numvert);
-
-		mesh.indices.clear();
-
-		int order = 0;
- 		for (auto fi = m.face.begin(); fi != m.face.end(); ++fi)
-		{
-			if(  fi->IsD() )continue;
-		 
-			for (int k = 0; k < fi->VN(); k++)
-			{
-				int vInd = VertexId[vcg::tri::Index(m, (*fi).V(k))];
-				mesh.indices.push_back(vInd);
-				order++;
-
-				if (bText)
-				{
-					float uu = (*fi).WT(k).u();
-					float vv = (*fi).WT(k).v();
-					uvs1[vInd] = { uu, vv };	
- 				}
-			}
- 		}	
-
- 
-		mesh.positions=positions;
- 
-		if(bColor)
-			mesh.colors=colors;
-
-		if(bText)
-			mesh.UVs.swap(uvs1);
-
- 	} 
-}
-
 namespace SIMPLE
 {
 	void  simple_Function(wraperCesium::GMesh* mesh, double factor, bool bKeepBorder)
@@ -576,74 +444,7 @@ namespace SIMPLE
 	//
 	void SplitMesh_func(wraperCesium::GMesh& mesh, std::vector<wraperCesium::GMesh>& subMeshs)
 	{
-		int mask = 0;
-		if (!mesh.UVs.empty())
-		{
-			mask |= vcg::tri::io::Mask::IOM_VERTTEXCOORD;
-
-			mask |= vcg::tri::io::Mask::IOM_WEDGTEXCOORD;
-			mask |= vcg::tri::io::Mask::IOM_FACECOLOR;
-
-			mask |= vcg::tri::io::Mask::IOM_FACECOLOR;
-		}
-		if (!mesh.colors.empty())
-		{
-			mask |= vcg::tri::io::Mask::IOM_VERTCOLOR;
-		}
-		if (!mesh.batchIDs.empty())
-		{
-			mask |= vcg::tri::io::Mask::IOM_VERTNORMAL;
-		}
-
-		MeshModel currentModel(1, "1", "1");
-		CMeshO cm;
-		currentModel.cm = &cm;
-		currentModel.enable(mask);
-		toMesh_func(mesh, cm,mask);
-
-		int delvert = tri::Clean<CMeshO>::RemoveDuplicateVertex(cm);
-
-
- 		bool removeSourceMesh =false;
-
-		currentModel.updateDataMask(MeshModel::MM_FACEFACETOPO);
-		std::vector<std::pair<int, CMeshO::FacePointer>> connectedCompVec;
-		int numCC = tri::Clean<CMeshO>::ConnectedComponents(cm, connectedCompVec);
-
-		tri::UpdateSelection<CMeshO>::FaceClear(cm);
-		tri::UpdateSelection<CMeshO>::VertexClear(cm);
-
-		for (size_t i = 0; i < connectedCompVec.size(); ++i) 
-		{
-			connectedCompVec[i].second->SetS();
-			tri::UpdateSelection<CMeshO>::FaceConnectedFF(cm /*,true*/);
-			tri::UpdateSelection<CMeshO>::VertexFromFaceLoose(cm);
-
-			// create a new mesh from the selection
-			std::string lable=std::to_string(i+1);
-			MeshModel destModel(i+1,lable,lable);
-			CMeshO cmi;
-			destModel.cm = &cmi;
-
-			destModel.updateDataMask(&currentModel);
-
-			tri::Append<CMeshO, CMeshO>::Mesh(cmi, cm, true);
-
-			// clear selection from source mesh and from newly created mesh
-			tri::UpdateSelection<CMeshO>::FaceClear(cm);
-			tri::UpdateSelection<CMeshO>::VertexClear(cm);
-			tri::UpdateSelection<CMeshO>::FaceClear(cmi);
-			tri::UpdateSelection<CMeshO>::VertexClear(cmi);	
-
-			// init new layer
-			destModel.updateBoxAndNormals();
-			destModel.cm->Tr = cmi.Tr;
-
-			wraperCesium::GMesh subMesh=mesh;
-			fromMesh_funcEx(subMesh, cmi);
-
-			subMeshs.push_back(subMesh);
-		}
+	 
 	}
 }
 
