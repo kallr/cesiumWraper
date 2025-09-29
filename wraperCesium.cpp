@@ -72,7 +72,7 @@ namespace wraperCesium
 
  				return Cesium3DTilesContent::ConvertTileToGltf::B3dm3Glb(b3dm_buf, gltfBytesCompact );
 		}
-		bool compressGlb(std::vector<std::byte>& data , const std::string& filepath)
+		bool compressGlb(std::vector<std::byte>& data , const std::string& filepath,int nLevel)
 		{
  			if(getFlag() )
 				return true;
@@ -93,11 +93,18 @@ namespace wraperCesium
 				{
 					std::unique_ptr<draco::Scene> scene = std::move(maybe_scene).value();
 
-					draco::DracoCompressionOptions options;
-					options.compression_level=5;
-					options.quantization_position.SetQuantizationBits(20);
-					draco::SceneUtils::SetDracoCompressionOptions(&options, scene.get());
-
+					if (nLevel >= 1)
+					{
+						draco::DracoCompressionOptions options;
+						options.compression_level = nLevel;
+						options.quantization_position.SetQuantizationBits(20);
+						draco::SceneUtils::SetDracoCompressionOptions(&options, scene.get());
+					}
+					else// ï¿½ï¿½Ñ¹ï¿½ï¿½
+					{
+ 						draco::SceneUtils::SetDracoCompressionOptions(nullptr, scene.get());
+					}
+ 
 					std::string folder_path;
 					std::string gltf_file_name;
 					draco::SplitPath(filepath, &folder_path, &gltf_file_name);
@@ -677,7 +684,7 @@ using namespace CesiumGltf;
 				img->setImage(image.cesium.width, image.cesium.height, 1, texFormat, format, GL_UNSIGNED_BYTE, imgData, osg::Image::AllocationMode::USE_NEW_DELETE);
 
 
-				//add cg ,ÎªÊ²Ã´ÐèÒª£¿£¿
+				//add cg ,ÎªÊ²Ã´ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½
 
 				if(bTest)
 					osgDB::writeImageFile(*img,"I:/temp/test.png");
@@ -1274,7 +1281,7 @@ using namespace CesiumGltf;
 	struct TempMesh
 	{
 		std::vector< osg::Vec3> vertices;
-		std::vector< float> batchIDs;
+		std::vector< int> batchIDs;
 		std::vector< osg::Vec2> uvs;
 		std::vector< osg::Vec4> colors;
 
@@ -1357,7 +1364,7 @@ using namespace CesiumGltf;
 			}
 		}
 
-		void AddVertex(const  std::vector<osg::Vec3>& ogVertices, const std::vector<osg::Vec2>& ogUVs, const std::vector<float>& ogIDs, const std::vector<osg::Vec4>& ogColors, int index)
+		void AddVertex(const  std::vector<osg::Vec3>& ogVertices, const std::vector<osg::Vec2>& ogUVs, const std::vector<int>& ogIDs, const std::vector<osg::Vec4>& ogColors, int index)
 		{
 			vMapping[index] = vertices.size();
 
@@ -1466,7 +1473,7 @@ using namespace CesiumGltf;
 
 
 		bool TrianglePlaneIntersectX(const std::vector<osg::Vec3>&  vertices, 
-			const std::vector<float>&  ids,
+			const std::vector<int>&  ids,
 			const std::vector<osg::Vec2>&  uvs, 
 			const std::vector<osg::Vec4>&  colors,
 			const std::vector<unsigned int >&  triangles,
@@ -1508,7 +1515,7 @@ using namespace CesiumGltf;
 			positive[1] = sideFlags[t[1]];
 			positive[2] = sideFlags[t[2]];
 
-			if (positive[0] == positive[1] && positive[0] == positive[2])//Í¬Ò»²à
+			if (positive[0] == positive[1] && positive[0] == positive[2])//Í¬Ò»ï¿½ï¿½
 			{
 				if (positive[0] >= 0) //left
 				{
@@ -1520,7 +1527,7 @@ using namespace CesiumGltf;
 				}
 				return false;
 			}
-			else if ((positive[0] == 0 && positive[1] == positive[2]) || (positive[1] == 0 && positive[0] == positive[2]) || (positive[2] == 0 && positive[0] == positive[1]))//Ò»¸öÔÚÇÐÃæ£¬Á½¸öÔÚÍ¬Ò»²à
+			else if ((positive[0] == 0 && positive[1] == positive[2]) || (positive[1] == 0 && positive[0] == positive[2]) || (positive[2] == 0 && positive[0] == positive[1]))//Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ò»ï¿½ï¿½
 			{
 				int flag = positive[0] + positive[1] + positive[2];
 
@@ -1535,7 +1542,7 @@ using namespace CesiumGltf;
 				return false;
 			}
 
-			else if ((positive[0] == 0 && positive[1] != 0 && positive[1] == positive[2]) || (positive[1] == 0 && positive[2] != 0 && positive[0] == positive[2]) || (positive[2] == 0 && positive[0] != 0 && positive[0] == positive[1]))////Ò»¸öÔÚÇÐÃæ£¬Á½¸öÔÚÍ¬Ò»²à
+			else if ((positive[0] == 0 && positive[1] != 0 && positive[1] == positive[2]) || (positive[1] == 0 && positive[2] != 0 && positive[0] == positive[2]) || (positive[2] == 0 && positive[0] != 0 && positive[0] == positive[1]))////Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ò»ï¿½ï¿½
 			{
 				int flag = positive[0] + positive[1] + positive[2];
 				if (flag > 0) //left
@@ -1549,7 +1556,7 @@ using namespace CesiumGltf;
 				return false;
 			}
 
-			else if ( (positive[0] == 0 && positive[1] == 0 && positive[2] !=0 ) || (positive[0] == 0 && positive[1] != 0 && positive[2] == 0) ||  (positive[0] != 0 && positive[1] == 0 && positive[2] == 0))////2¸öÔÚÇÐÃæ£¬1¸öÔÚÒ»²à
+			else if ( (positive[0] == 0 && positive[1] == 0 && positive[2] !=0 ) || (positive[0] == 0 && positive[1] != 0 && positive[2] == 0) ||  (positive[0] != 0 && positive[1] == 0 && positive[2] == 0))////2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ£¬1ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
 			{
 				int flag = positive[0] + positive[1] + positive[2];
 				if (flag > 0) //left
@@ -1563,7 +1570,7 @@ using namespace CesiumGltf;
 				return false;
 			}
 
-			else if ((positive[0] == 0 && positive[1] != positive[2]) || (positive[1] == 0 && positive[0] != positive[2]) || (positive[2] == 0 && positive[0] != positive[1]))//Ò»¸öÔÚÇÐÃæ¡£ÁíÍâÁ½¸öÔÚ²»Í¬²à
+			else if ((positive[0] == 0 && positive[1] != positive[2]) || (positive[1] == 0 && positive[0] != positive[2]) || (positive[2] == 0 && positive[0] != positive[1]))//Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ¡£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½Í¬ï¿½ï¿½
 			{
 				std::tuple<osg::Vec3, osg::Vec2,osg::Vec4> newPointPrev;
 				if (positive[0] == 0)
@@ -1711,7 +1718,7 @@ using namespace CesiumGltf;
 
 		std::vector<osg::Vec3> ogVertices;
 		std::vector<unsigned int> ogTriangles;
-		std::vector<float> ogBatchIDs;
+		std::vector<int> ogBatchIDs;
 		std::vector<osg::Vec2> ogUvs;
 		std::vector<osg::Vec4> ogColors;
 
@@ -1912,7 +1919,7 @@ using namespace CesiumGltf;
 				}
 			}
 
-			//ÁÙÊ±×¢ÊÍ, ÏÈ²»´¦ÀíÇÐÃæ	,todo 
+			//ï¿½ï¿½Ê±×¢ï¿½ï¿½, ï¿½È²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	,todo 
 
 			return true;
 		}
@@ -2006,7 +2013,7 @@ using namespace CesiumGltf;
 		double dMax = std::max(DX, DY);
 
 		double ingoreScope = 6;
-		if (DZ / dMax > 5 || dMax < ingoreScope)//¾Ö²¿Ð¡Ìå»ý¶à¶¥µãÄ£ÐÍ£¬²»ÇÐ·Ö
+		if (DZ / dMax > 5 || dMax < ingoreScope)//ï¿½Ö²ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½à¶¥ï¿½ï¿½Ä£ï¿½Í£ï¿½ï¿½ï¿½ï¿½Ð·ï¿½
 		{
 			return;
 		}
@@ -2073,7 +2080,7 @@ using namespace CesiumGltf;
 					}
 					else
 					{
-						childMeshs[i - 1] = mesh;//²»Ïà½»µÃ»°
+						childMeshs[i - 1] = mesh;//ï¿½ï¿½ï¿½à½»ï¿½Ã»ï¿½
 						break;
 					}
 				}

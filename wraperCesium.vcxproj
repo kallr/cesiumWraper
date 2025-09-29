@@ -128,7 +128,7 @@
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
+      <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>false</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
@@ -137,7 +137,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>E:\dev\cesium-native\Cesium3DTiles\include;E:\dev\cesium-native\Cesium3DTiles\generated\include;E:\dev\cesium-native\CesiumUtility\include;E:\dev\cesium-native\Cesium3DTilesContent\include;E:\dev\cesium-native\Cesium3DTilesContent\generated\include;E:\dev\cesium-native\Cesium3DTilesReader\include;E:\dev\cesium-native\Cesium3DTilesReader\generated\include;E:\dev\cesium-native\CesiumAsync\include;E:\dev\cesium-native\extern\asyncplusplus\include;E:\dev\cesium-native\CesiumJsonReader\include;E:\dev\\cesium-native\CesiumGeometry\include;E:\dev\\cesium-native\CesiumGeospatial\include;E:\dev\\cesium-native\extern\earcut\include;E:\dev\\cesium-native\CesiumGltf\include;E:\dev\\cesium-native\CesiumGltf\generated\include;E:\dev\\cesium-native\CesiumGltfContent\include;E:\dev\\cesium-native\CesiumGltfContent\generated\include;E:\dev\\cesium-native\CesiumGltfReader\include;E:\dev\\cesium-native\CesiumGltfReader\generated\include;E:\dev\\cesium-native\Cesium3DTilesSelection\include;E:\dev\\cesium-native\CesiumQuantizedMeshTerrain\include;E:\dev\\cesium-native\CesiumQuantizedMeshTerrain\generated\include;E:\dev\\cesium-native\CesiumJsonWriter\include;E:\dev\\cesium-native\CesiumRasterOverlays\include;E:\dev\\cesium-native\Cesium3DTilesWriter\include;E:\dev\\cesium-native\Cesium3DTilesWriter\generated\include;E:\dev\\cesium-native\CesiumGltfWriter\include;E:\dev\\cesium-native\CesiumGltfWriter\generated\include;E:\dev\\cesium-native\CesiumIonClient\include;E:\dev\\cesium-native\extern\glm\glm\..;E:\dev\\cesium-native\extern\GSL\include;E:\dev\\cesium-native\extern\spdlog\include;E:\dev\\cesium-native\extern\draco;E:\dev\\cesium-native\extern\draco\src;E:\dev\\cesium-native\build;E:\dev\\cesium-native\extern\draco\third_party\eigen;E:\dev\\cesium-native\extern\draco\third_party\filesystem\include;E:\dev\\cesium-native\extern\draco\third_party\tinygltf;E:\dev\\cesium-native\extern\libwebp\src;E:\dev\\cesium-native\extern\libwebp;E:\dev\\cesium-native\extern\KTX-Software\include;E:\dev\\cesium-native\extern\KTX-Software\lib;E:\dev\\cesium-native\extern\meshoptimizer\src;E:\dev\\cesium-native\extern\KTX-Software\lib\basisu;E:\dev\OpenSceneGraph-3.6.5\include;E:\dev\3rd\vcglib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>

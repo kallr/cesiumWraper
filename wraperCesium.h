@@ -42,7 +42,7 @@ namespace osg
 			std::vector< osg::Vec4> colors;
 			std::vector< osg::Vec3> normals;
 
-			std::vector<float>batchIDs;
+			std::vector<int>batchIDs;
 		 };
 		void clearMesh(GMesh& smesh);
 
@@ -50,7 +50,7 @@ namespace osg
 		WRAPERCESIUM_API 	bool compresTextureKTX(std::ostream& fout,int s, int t ,const uint8_t* rgb, int internalTextureFormat,int totalSizeInBytes);
 
 		WRAPERCESIUM_API bool b3dm2Glb(const std::string& b3dm_buf ,std::vector<std::byte>& gltfBytesCompact);
-		WRAPERCESIUM_API bool compressGlb(std::vector<std::byte>& data , const std::string& file);
+		WRAPERCESIUM_API bool compressGlb(std::vector<std::byte>& data , const std::string& file,int nLevel=5);
 		WRAPERCESIUM_API bool compressGlbWithMeshOpt(std::vector<std::byte>& data , const std::string& file,bool textureRef);
 
 		//gltfPack

@@ -113,6 +113,11 @@ void QuadricSimplification(double& TargetError,  CMeshO &m, int  TargetFaceNum, 
 	}
 
 	int faceSize = m.fn*0.9;
+	if (faceSize < TargetFaceNum)
+		faceSize = TargetFaceNum;
+
+	if (faceSize < 3)
+		return;
 	
 	DeciSession.SetTargetSimplices(faceSize);
 	DeciSession.SetTimeBudget(0.1f);
@@ -172,17 +177,31 @@ bool quadric_simplificationTex(double& TargetError, MeshModel& m,double TargetFa
 
 bool quadric_simplification(double& TargetError, MeshModel& m,double factor,bool bkeepBorder)
 {
-	int delvert = tri::Clean<CMeshO>::RemoveDuplicateVertex(*(m.cm) );
-	if (delvert != 0)
-	{
-		m.updateBoxAndNormals();
-	}
+	CMeshO& cm = *(m.cm);
+
 
 	m.clearDataMask(MeshModel::MM_FACEFACETOPO);
 	m.clearDataMask(MeshModel::MM_VERTFACETOPO);
 
 	m.updateDataMask(MeshModel::MM_VERTFACETOPO | MeshModel::MM_VERTMARK);
-	tri::UpdateFlags<CMeshO>::FaceBorderFromVF(*(m.cm));
+	tri::UpdateFlags<CMeshO>::FaceBorderFromVF(cm);
+
+	///
+	{
+		{
+			int nullFaces = tri::Clean<CMeshO>::RemoveFaceOutOfRangeArea(cm, 0);
+			int deldupvert = tri::Clean<CMeshO>::RemoveDuplicateVertex(cm);
+			int delvert = tri::Clean<CMeshO>::RemoveUnreferencedVertex(cm);
+			m.clearDataMask(MeshModel::MM_FACEFACETOPO);
+			tri::Allocator<CMeshO>::CompactVertexVector(cm);
+			tri::Allocator<CMeshO>::CompactFaceVector(cm);
+		}
+
+		m.updateBoxAndNormals();
+		tri::UpdateNormal<CMeshO>::NormalizePerFace(cm);
+		tri::UpdateNormal<CMeshO>::PerVertexFromCurrentFaceNormal(cm);
+		tri::UpdateNormal<CMeshO>::NormalizePerVertex(cm);
+	}
 
 	bool bTexture = m.hasPerVertexTexCoord();
 	int TargetFaceNum = m.cm->fn* factor;
@@ -194,24 +213,24 @@ bool quadric_simplification(double& TargetError, MeshModel& m,double factor,bool
 		return false; 
 
 	////
-	if (0)
+	if (1)
 	{
-		if (TargetFaceNum <= 5)
+		if (TargetFaceNum <= 5 & TargetFaceNum+3 <m.cm->fn )
 			TargetFaceNum += 3;
-		else if (TargetFaceNum <= 10)
-			TargetFaceNum += 5;
-		else if (TargetFaceNum <= 20)
-			TargetFaceNum += 9;
-		else if (TargetFaceNum <= 40)
-			TargetFaceNum += 17;
-		else if (TargetFaceNum <= 80)
-			TargetFaceNum += 33;
-		else if (TargetFaceNum <= 160)
-			TargetFaceNum += 64;
-		else if (TargetFaceNum <= 320)
-			TargetFaceNum += 129;
-		else if (TargetFaceNum <= 640)
-			TargetFaceNum += 257;
+		else if (TargetFaceNum <= 10 & TargetFaceNum+4 <m.cm->fn)
+			TargetFaceNum += 4;
+		else if (TargetFaceNum <= 20 & TargetFaceNum+6 <m.cm->fn)
+			TargetFaceNum += 6;
+		else if (TargetFaceNum <= 40 & TargetFaceNum+10 <m.cm->fn)
+			TargetFaceNum += 10;
+		else if (TargetFaceNum <= 80 & TargetFaceNum+20 <m.cm->fn)
+			TargetFaceNum += 20;
+		else if (TargetFaceNum <= 160 & TargetFaceNum+40 <m.cm->fn)
+			TargetFaceNum += 40;
+		else if (TargetFaceNum <= 320 & TargetFaceNum+80 <m.cm->fn)
+			TargetFaceNum += 80;
+		else if (TargetFaceNum <= 640 & TargetFaceNum+100 <m.cm->fn)
+			TargetFaceNum += 100;
 	}
 
 
@@ -236,19 +255,19 @@ bool quadric_simplification(double& TargetError, MeshModel& m,double factor,bool
 	pp.QualityQuadricWeight = 0.001;
 	pp.ScaleFactor = 1.0;
 	 
-	QuadricSimplification(TargetError,  *(m.cm), TargetFaceNum, false, pp, nullptr);
+	QuadricSimplification(TargetError,  cm, TargetFaceNum, false, pp, nullptr);
 
 	bool AutoClean = true;
 	if (AutoClean)
 	{
-		int nullFaces = tri::Clean<CMeshO>::RemoveFaceOutOfRangeArea(*m.cm, 0);
-		int deldupvert = tri::Clean<CMeshO>::RemoveDuplicateVertex(*m.cm);
-		int delvert = tri::Clean<CMeshO>::RemoveUnreferencedVertex(*m.cm);
+		int nullFaces = tri::Clean<CMeshO>::RemoveFaceOutOfRangeArea(cm, 0);
+		int deldupvert = tri::Clean<CMeshO>::RemoveDuplicateVertex(cm);
+		int delvert = tri::Clean<CMeshO>::RemoveUnreferencedVertex(cm);
 
 		m.clearDataMask(MeshModel::MM_FACEFACETOPO);
 
-		tri::Allocator<CMeshO>::CompactVertexVector(*m.cm);
-		tri::Allocator<CMeshO>::CompactFaceVector(*m.cm);
+		tri::Allocator<CMeshO>::CompactVertexVector(cm);
+		tri::Allocator<CMeshO>::CompactFaceVector(cm);
 	}
 
 	//m.updateBoxAndNormals();
